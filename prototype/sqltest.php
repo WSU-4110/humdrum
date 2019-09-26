@@ -1,5 +1,5 @@
 <?php
-    $serverName = "your_server.database.windows.net"; // update me
+    $serverName = "humdrum-server.database.windows.net"; // update me
     $connectionOptions = array(
         "Database" => "your_database", // update me
         "Uid" => "your_username", // update me
