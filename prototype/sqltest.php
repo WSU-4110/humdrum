@@ -1,8 +1,8 @@
 <?php
     $serverName = "humdrum-server.database.windows.net"; // update me
     $connectionOptions = array(
-        "Database" => "your_database", // update me
-        "Uid" => "your_username", // update me
+        "Database" => "humdrum-database", // update me
+        "Uid" => "maclo4", // update me
         "PWD" => "your_password" // update me
     );
     //Establishes the connection
