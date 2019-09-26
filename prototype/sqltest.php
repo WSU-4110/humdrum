@@ -3,7 +3,7 @@
     $connectionOptions = array(
         "Database" => "humdrum-database", // update me
         "Uid" => "maclo4", // update me
-        "PWD" => "your_password" // update me
+        "PWD" => "humdrum1234" // update me
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
