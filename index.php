@@ -79,7 +79,7 @@
 
 	<header>
 		<div>
-			<h1><i> <img src="images/banner_x.jpg"> </i></h1>
+			<h1><i> <img src="images/banner.jpg"> </i></h1>
 		</div>
 	</header>
 
