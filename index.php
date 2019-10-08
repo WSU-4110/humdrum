@@ -37,29 +37,11 @@
 
 			<!--Center Page - Timeline -->
 			<div class="box">
-				<div class="page">
+				
 					<!--Example Posts-->
 					
-					<div class="post">
-						<div class="postDiv">
-						<form action="" method = "add_new_post">
-					Submit a post:<br>
-					<input type="text" name="post_body"><br>
-					<input type="submit" value="Submit">
 					
-					</form>
-					<?php 
-					include "db_connect.php";
-					$new_post = $_REQUEST["post_body"];
-					echo "<h2>$new_post </h2>";
-					$sql = "INSERT INTO user_posts (Content) VALUES ('$new_post')";
-					$result = $mysqli->query($sql);
-					
-					?>
-	
-						</div>
-						
-					</div>
+				
 					
 					
 					<div class="post">
@@ -90,7 +72,7 @@
 					?>
 						</div>
 						
-					</div>
+					</dxiv>
 					
 					
 					</div>
@@ -133,6 +115,25 @@
 					?>
 					<br>
 						
+					</div>
+					<div>
+					<!-- type your post here -->
+				
+						<form action="" method = "post" >
+					Submit a post:<br>
+					<textarea id="msg" name="post_body"></textarea>
+					<br>
+					<input type="submit" value="Submit">
+					
+					</form>
+					<?php 
+					include "db_connect.php";
+					$new_post = $_REQUEST["post_body"];
+					echo "<h2>$new_post </h2>";
+					$sql = "INSERT INTO user_posts (Content) VALUES ('$new_post')";
+					$result = $mysqli->query($sql);
+					
+					?>
 					</div>
 
 				</div>
