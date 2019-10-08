@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php
-require_once 'vendor/autoload.php';
-?>
+
 <html lang="en">
 	<head>
 		<title> humdrum </title>
@@ -11,18 +9,9 @@ require_once 'vendor/autoload.php';
 	</head>
 	<link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
 
-	<header>
-		<div>
-			<h1><i> <img src="images/banner.jpg"> </i></h1>
-		</div>
-	</header>
-
 
 	<nav>
-
-		<a href="index.php"> <img src="images/home.jpg"> </a> &nbsp; <a href="profile.html"> <img src="images/profile.jpg"> </a> &nbsp; <a href="trending.html"> <img src="images/trending.jpg"> </a> &nbsp; <a href="notifications.html"> <img src="images/notifications.jpg"> </a> &nbsp;
-		
-
+		<?php include("navbar.php"); ?>
 	</nav>
 
 	<div class= "wrapper">
