@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<?php
+require_once 'vendor/autoload.php';
+?>
 <html lang="en">
 	<head>
 		<title> humdrum </title>
@@ -11,6 +16,7 @@
 			<h1><i> <img src="images/banner.jpg"> </i></h1>
 		</div>
 	</header>
+
 
 	<nav>
 
@@ -39,7 +45,7 @@
 			<div class="box">
 				
 					<!--Example Posts-->
-					
+				
 					
 				
 					
@@ -68,8 +74,7 @@
 					<input type="text" name="keyword">
 					<input type="submit" value="Submit">
 					</form>
-					<?php
-					?>
+					
 						</div>
 						
 					</dxiv>
@@ -134,6 +139,12 @@
 					$result = $mysqli->query($sql);
 					
 					?>
+					<iframe src="https://open.spotify.com/embed/track/1cYDIA4W6eSL4VkPBm1vw7" 
+					width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+					<script async src="https://cse.google.com/cse.js?cx=004780170324679756711:jppohlwwgaz"></script>
+					<div class="gcse-search" ></div>
+				
+					
 					</div>
 
 				</div>
