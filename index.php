@@ -39,62 +39,24 @@
 			<div class="box">
 				<div class="page">
 					<!--Example Posts-->
-					<div class="post">
-						<div class="postDiv">
-						<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
-						<b>Manny Calavera</b> shared at 1:43 p.m.<br>
-						<b>Humdrum<br>
-						Peter Gabriel</b>
-						</div>
-						<div class="postDiv">
-							<iframe width=80% height=80% src="https://www.youtube.com/embed/rLOuwNfF050"></iframe>
-							</div>
-						<div class="postDiv">
-						Average Rating: 4/5
-						</div>
-						<div class="postDiv"> 
-						<?php
-					include "db_connect.php";
-					
-					?>
-					<form action="" method="post">
-					Comment:<br>
-					<input type="text" name="keyword">
-					<input type="submit" value="Submit">
-					</form>
-					<?php
-					?>
-						</div>
-						
-						</div>
-
 					
 					<div class="post">
 						<div class="postDiv">
-						<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
-						<b>Manny Calavera</b> shared at 2:30 p.m.<br>
-						<b>Lucy In The Sky With Diamonds <br>
-						The Beatles</b>
-						</div>
-						<div class="postDiv">
-							<iframe width=80% height=80% src="https://www.youtube.com/embed/juilt43avXY"></iframe>
-							</div>
-						<div class="postDiv">
-						Average Rating: 5/5
-						</div>
-						
-						<div class="postDiv"> 
-						<?php
+						<form action="" method = "add_new_post">
+					Submit a post:<br>
+					<input type="text" name="post_body"><br>
+					<input type="submit" value="Submit">
+					
+					</form>
+					<?php 
 					include "db_connect.php";
+					$new_post = $_REQUEST["post_body"];
+					echo "<h2>$new_post </h2>";
+					$sql = "INSERT INTO user_posts (Content) VALUES ('$new_post')";
+					$result = $mysqli->query($sql);
 					
 					?>
-					<form action="" method="post">
-					Comment:<br>
-					<input type="text" name="keyword">
-					<input type="submit" value="Submit">
-					</form>
-					<?php
-					?>
+	
 						</div>
 						
 					</div>
