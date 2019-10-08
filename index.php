@@ -66,10 +66,53 @@
 					
 						</div>
 						
-					</dxiv>
+					
 					
 					
 					</div>
+					<?php
+					
+					
+
+					// search for keyword
+					$sql = "SELECT * FROM user_posts";
+					$result = $mysqli->query($sql);
+
+					if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						
+					echo "<div class=\"post\">
+						<div class=\"postDiv\">
+						<img src=\"images/ProfileTest.jpg\" alt=\"Profile Picture.\" width=\"32\" height=\"32\">
+						
+						". $row["User"] . "</b>
+						</div>
+						<div class=\"postDiv\">
+							". $row["Spotify"] . "
+							</div>
+						<div class=\"postDiv\">
+						<div>". $row["Content"] ." </div>
+						Average Rating: 5/5
+						</div>
+						
+						<div class=\"postDiv\"> 
+					
+					<form action=\"\" method=\"post\">
+					Comment:<br>
+					<input type=\"text\" name=\"keyword\">
+					<input type=\"submit\" value=\"Submit\">
+					</form>
+						</div>
+					</div>";
+					}
+					} else {
+					echo "no results";
+					}
+					
+					$mysqli->close();
+					
+					?>
 					
 				</div>
 
@@ -122,10 +165,13 @@
 					</form>
 					<?php 
 					include "db_connect.php";
+					if($new_post)
+					{
 					$new_post = $_REQUEST["post_body"];
 					echo "<h2>$new_post </h2>";
 					$sql = "INSERT INTO user_posts (Content) VALUES ('$new_post')";
 					$result = $mysqli->query($sql);
+					}
 					
 					?>
 					<iframe src="https://open.spotify.com/embed/track/1cYDIA4W6eSL4VkPBm1vw7" 
