@@ -51,7 +51,7 @@
 				
 					
 					
-					<div class="post">
+					<!--<div class="post">
 						<div class="postDiv">
 						<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
 						<b>Manny Calavera</b> shared at 11:32 a.m.<br>
@@ -81,51 +81,55 @@
 					
 					
 					
-					</div>
+					</div> -->
 					<?php
 					
 					
 
+						include "db_connect.php";
 					// search for keyword
 					$sql = "SELECT * FROM user_posts";
 					$result = $mysqli->query($sql);
 
+					$user = array();
+					$content = array();
+					$spotify = array();
+					
 					if ($result->num_rows > 0) {
 					// output data of each row
 					while($row = $result->fetch_assoc()) {
 						
+						array_push($user, $row["User"]); 
+						array_push($content, $row["Content"]); 
+					array_push($spotify, $row["Spotify"]);
+					}
+					
+					// looping thru the results backwards
+					$i=sizeof($user) - 1;
+					foreach($user as $value){
 					echo "<div class=\"post\">
 						<div class=\"postDiv\">
 						<img src=\"images/ProfileTest.jpg\" alt=\"Profile Picture.\" width=\"32\" height=\"32\">
-						
-						". $row["User"] . "</b>
+						". $user[$i] . "</b>
 						</div>
 						<div class=\"postDiv\">
-							". $row["Spotify"] . "
+							". $spotify[$i] . "
 							</div>
 						<div class=\"postDiv\">
-						<div>". $row["Content"] ." </div>
+						<div>". $content[$i] ." </div>
 						Average Rating: 5/5
 						</div>
-						
-						<div class=\"postDiv\"> 
-					
-					<form action=\"\" method=\"post\">
-					Comment:<br>
-					<input type=\"text\" name=\"keyword\">
-					<input type=\"submit\" value=\"Submit\">
 					</form>
 						</div>
-					</div>";
+					";
+					
+					$i--;
 					}
-					} else {
+					} 
+					 else {
 					echo "no results";
 					}
-					
-					$mysqli->close();
-					
 					?>
-					
 				</div>
 
 			<!--Right Page - Music Search -->
@@ -138,6 +142,7 @@
 					include "db_connect.php";
 					
 					?>
+					<h2> Create a Post </h2>
 					<form action="" method="post">
 					Search for a song/artist:<br>
 					<input type="text" name="keyword"><br>
@@ -154,7 +159,10 @@
 					if ($result->num_rows > 0) {
 					// output data of each row
 					while($row = $result->fetch_assoc()) {
-					echo "<br>" . "<b>Artist: </b>" . $row["artist"]. "<br>" . "<b>Song: </b>" . $row["song"]. "<br>" . "<b>Youtube Link: </b>" . $row["url"] . "<br>";
+					echo "<br>" . "<b>Artist: </b>" . $row["artist"]. "<br>" . "<b>Song: </b>" . $row["song"]. "<br>" . "<b>Youtube Link: </b> <br>" . $row["url"] . "<br>";
+					
+					$_SESSION["spotify"] = $row["url"];
+				
 					}
 					} else {
 					echo "no results";
@@ -168,26 +176,15 @@
 					<div>
 					<!-- type your post here -->
 				
-						<form action="" method = "post" >
+						<form action="add_post.php" method = "post" >
 					Submit a post:<br>
 					<textarea id="msg" name="post_body"></textarea>
 					<br>
 					<input type="submit" value="Submit">
 					
 					</form>
-					<?php 
-					include "db_connect.php";
-					if($new_post)
-					{
-					$new_post = $_REQUEST["post_body"];
-					echo "<h2>$new_post </h2>";
-					$sql = "INSERT INTO user_posts (Content) VALUES ('$new_post')";
-					$result = $mysqli->query($sql);
-					}
 					
-					?>
-					<iframe src="https://open.spotify.com/embed/track/1cYDIA4W6eSL4VkPBm1vw7" 
-					width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+					
 					<script async src="https://cse.google.com/cse.js?cx=004780170324679756711:jppohlwwgaz"></script>
 					<div class="gcse-search" ></div>
 				

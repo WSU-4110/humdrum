@@ -68,7 +68,7 @@ header, nav, footer {
 form {
   /* Center the form on the page */
   margin: 0 auto;
-  width: 5em;
+  width: 75%;
   /* Form outline */
   padding: 1em;
   border: 1px solid #CCC;
@@ -93,7 +93,7 @@ textarea {
   font: 1em sans-serif;
 
   /* Uniform text field size */
-  width: 5em;
+  width: 75%;
   box-sizing: border-box;
 
   /* Match form field borders */
