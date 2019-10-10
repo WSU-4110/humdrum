@@ -2,7 +2,7 @@
 
 
 include "db_connect.php";
-if ($mysqli->connect_errno)
+if ($mysqli->connect_errno)//
 {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
@@ -15,16 +15,19 @@ if ($result->num_rows > 0)
 {
     while($row = $result->fetch_assoc()) 
     {
-        if($row["username"] == $_POST["Username"] and $row["password"]==$_POST["Password"])
+        if($row["username"] == $_POST["Username"] and $row["password"]==$_POST["Password"])//checks if user input matches a corresponding username and password in the database
         {
-            header("Location: home.php");
+            header("Location: home.php");//sends user to homepage in the event of a valid login
             exit;
         }
     }
+    
+    header("Location: index.php");//redirects user back to front page in the event of an invalid login
+    exit;
 } 
 else 
 {
-    header("Location: index.php");
+    header("Location: index.php");//redirects back to front page in the case of no registered users
     exit;
 }
 

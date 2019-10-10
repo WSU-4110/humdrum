@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 
+	<head>
+		<title> humdrum-login </title>
+		<meta charset="utf-8">
+	</head>
+
+<h1>Humdrum</h1><br><br>
+
+<!--form for user to input their username and password.-->
  <form action="login.php" method="post">
   Username:<br>
   <input type="text" name="Username"><br>
@@ -14,6 +22,8 @@
 
 <?php
 
+//the following code is for testing purposes only and displays all currently registered usernames and passwords.
+//I reccomend commenting this out for all live demos.
 include "db_connect.php";
 if ($mysqli->connect_errno)
 {
