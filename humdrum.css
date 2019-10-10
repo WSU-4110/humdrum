@@ -3,7 +3,7 @@ header, nav, footer {
 			background-color: lightblue;
 			/*color: rgba(255, 255, 255, 0.7);*/
 			color: white;
-			font-family: georgia;
+			font-family: Merriweather;
 			padding: 20px;
 		}
 		header {
@@ -13,13 +13,13 @@ header, nav, footer {
 		nav {
 			position: relative;
 			display: inline-block;
-			font-family: Verdana;
+			font-family: Merriweather;
 		}
 
 		body {
 			background-color: lightblue;
 			color: #666666;
-			font-family: arial;
+			font-family: Merriweather;
 		}
 		.wrapper {
 			position: center;
@@ -48,7 +48,7 @@ header, nav, footer {
 		
 			background-color: white;
 			color: black;
-			font-family: Verdana;
+			font-family: Merriweather;
 			padding: 20px;
 		}
 		.post {
@@ -57,7 +57,7 @@ header, nav, footer {
 			background-color: white;
 			border: 8px solid gray;
 			color: black;
-			font-family: Verdana;
+			font-family: Merriweather;
 			padding: 20px;
 			padding-bottom: 40px;
 		}
