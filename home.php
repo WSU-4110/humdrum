@@ -1,8 +1,19 @@
+
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <html lang="en">
+ <?php 
+ session_start();
+ 
+ if ($_SESSION["user_id"] == NULL)
+	 {
+     header("Location: login.php");
+     die();
+	 }
+ ?>
+
 	<head>
 		<title> humdrum </title>
 		<meta charset="utf-8">
@@ -25,6 +36,7 @@
 					<div>
 						<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
 						<b>Manny Calavera</b>
+						
 					</div>
 
 				</div>

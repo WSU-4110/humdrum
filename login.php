@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 include "db_connect.php";
 if ($mysqli->connect_errno)//
 {
@@ -14,9 +14,11 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) 
 {
     while($row = $result->fetch_assoc()) 
-    {
+    {	
         if($row["username"] == $_POST["Username"] and $row["password"]==$_POST["Password"])//checks if user input matches a corresponding username and password in the database
         {
+			
+			$_SESSION["user_id"] =  $row["username"];
             header("Location: home.php");//sends user to homepage in the event of a valid login
             exit;
         }

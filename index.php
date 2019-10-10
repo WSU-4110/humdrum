@@ -1,3 +1,12 @@
+ <?php
+ session_start();
+ //include "home.php";
+ 
+ //include "login.php";
+ //include "add_post.php";
+ 
+ $_SESSION["user_id"]= NULL;
+?>
 <!DOCTYPE html>
 
 	<head>
