@@ -7,10 +7,6 @@ if ($mysqli->connect_errno)
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$_POST["Username"];
-$_POST["Password"];
-
-
 
 $sql = "SELECT username, password FROM user_pass";
 $result = $mysqli->query($sql);
@@ -32,9 +28,6 @@ else
     exit;
 }
 
-
 $mysqli->close();
 
-
-    
 ?>
