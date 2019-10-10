@@ -5,14 +5,14 @@
 
 <html lang="en">
  <?php
- session_start();
+ /*session_start();
 
  if ($_SESSION["user_id"] == NULL)
 	 {
      header("Location: login.php");
      die();
 	 }
-
+*/
  ?>
 
 	<head>
@@ -147,9 +147,9 @@
 							</div>
 						<div class=\"postDiv\">
 						<div>". $content[$i] ." </div>
-						Average Rating: <i class="far fa-star" data-index="0"></i> <i class="far fa-star" data-index="1"></i> <i class="far fa-star" data-index="2"></i> <i class="far fa-star" data-index="3"></i> <i class="far fa-star" data-index="4"></i>
+						Average Rating: <i class=\"far fa-star\" data-index=\"0\"></i> <i class=\"far fa-star\" data-index=\"1\"></i> <i class=\"far fa-star\" data-index=\"2\"></i> <i class=\"far fa-star\" data-index=\"3\"></i> <i class=\"far fa-star\" data-index=\"4\"></i>
 						</div>
-            <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+            <script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
             <script>
               var ratedIndex = -1;
               $(document).ready(function(){
