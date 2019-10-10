@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+?>
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +36,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   
   
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
-    <img src="/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+  <?php $userNavBar = $_SESSION["user_id"];
+  ?>
+    <img src="/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="<?php echo $userNavBar?>">
   </a>
  </div>
 </div>
