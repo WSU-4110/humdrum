@@ -19,25 +19,30 @@
 	<title> humdrum </title>
 	<meta charset="utf-8">
 <script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
-</head>
 <link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
 
 
 	<?php include("navbar.php"); ?>
+	
+	
 <br><br>
 
-<div class= "wrapper">
-	<body>
+<body>
+
+	<div class= "wrapper">
 
 		<!--Left Page - Profile -->
 		
-		<div class="box">
+		<div class= "box">
 		<?php include "profile_timeline.php" ?>
 		</div>
 		
 		<!--Center Page - Timeline -->
 		
-		<div class="box">
+		
+		<div class= "box">
 		<?php include "timeline.php" ?>
 		</div>
 	
@@ -46,9 +51,11 @@
 		<div class="box">
 		<?php include "search_music.php" ?>
 		</div>
+	</div>
+		
+</body>
 
-	</body>
-</div>
+
 <?php include "footer.php" ?>
 
 

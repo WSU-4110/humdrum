@@ -1,23 +1,28 @@
-header, footer {
+header {
 	width: 100%;
-	display: float;
-	float: center;
+	
 	background-color: darkblue;
 	/*color: rgba(255, 255, 255, 0.7);*/
 	font-family: georgia;
 	padding: 20px;
 	text-align: center;
 }
+footer {
+	width: 100%;
+	background-color: lightblue;
+	position: fixed;
+	bottom: 0px;
+	padding: 10px;
+}
 .pageTitle {
 	text-align: center;
 	color: black;
 }
 header {
-	display: float;
-	float: top;
+	
 }
 nav {
-	position: relative;
+	position: fixed;
 	display: inline-block;
 	font-family: Verdana;
 }
@@ -39,39 +44,27 @@ body {
 	font-family: arial;
 }
 .wrapper {
+	display: float;
 	float: center;
 	background-color: lightblue;
-	position: float;
 	min-width:1200px;
-	width: 100%;
 }
 .wrapperlogin {
 	width: 600px;
 	display: float;
-	position: center;
+	float: center;
 	
 }
 .box {
+	display: float;
+	float: left;
 	min-height: 1024px;
-	position: float;
-	float: center;
-	border: 8px solid gray;
-}
-.box:nth-child(1) {
-	width: 30%;
-	background-color: red;
-}
-.box:nth-child(2) {
-	min-width: 30%;
-	background-color: green;
-}
-.box:nth-child(3) {
-	width: 30%;
-	background-color: yellow;
-	position: right;
+	width: 33%;
+	border: 4px solid gray;
 }
 .page {
-
+	min-height: 1024px;
+	border: 8px solid gray;
 	background-color: white;
 	color: black;
 	font-family: Verdana;
@@ -152,16 +145,7 @@ button {
   margin-left: .5em;
 }
 	
-		footer {
-			position: fixed;
-			bottom: 0px;
-			width: 100%;
-			height: 40px;
-			background-color: white;
-			color: #666666;
-			font-family: arial;
-			padding: 20px;
-		}
+
 		#myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
