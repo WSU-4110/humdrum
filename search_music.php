@@ -1,6 +1,5 @@
 <div class="page">
-
-	<div>
+<div class="post">
 	<?php
 	include "db_connect.php";
 
@@ -35,7 +34,6 @@
 	?>
 	<br>
 
-	</div>
 	<div>
 	<!-- type your post here -->
 
@@ -53,5 +51,5 @@
 
 
 	</div>
-
+</div>
 </div>

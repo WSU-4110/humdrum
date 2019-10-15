@@ -1,16 +1,7 @@
 <link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
 <div class= "page">
 
-		<!--Example Posts-->
-		
-		<?php include "post.php" ?>
-
-
-
-		
 		<?php
-
-
 
 			include "db_connect.php";
 		// search for keyword
@@ -27,7 +18,7 @@
 
 			array_push($user, $row["User"]);
 			array_push($content, $row["Content"]);
-		array_push($spotify, $row["Spotify"]);
+			array_push($spotify, $row["Spotify"]);
 		}
 
 		// looping thru the results backwards
@@ -75,7 +66,7 @@
   }
 </script>
 		</form>
-			</div>
+			
 		";
 
 		$i--;
@@ -85,4 +76,7 @@
 		echo "no results";
 		}
 		?>
+		<br><br>
+		<?php include "comment.php" ?>
+		</div>
 	</div>

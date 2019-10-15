@@ -44,10 +44,11 @@ body {
 	font-family: arial;
 }
 .wrapper {
-	display: float;
-	float: center;
+	display: block;
 	background-color: lightblue;
-	min-width:1200px;
+	width:1200px;
+	margin-left: auto ;
+	margin-right: auto ;
 }
 .wrapperlogin {
 	width: 600px;
@@ -68,13 +69,12 @@ body {
 	background-color: white;
 	color: black;
 	font-family: Verdana;
-	padding: 20px;
 }
 .post {
 	min-height:160px;
 	min-height:320;
 	background-color: white;
-	border: 8px solid gray;
+	border: 4px solid black;
 	color: black;
 	font-family: Verdana;
 	padding: 20px;
@@ -88,16 +88,11 @@ body {
 form {
   /* Center the form on the page */
   margin: 0 auto;
-  width: 75%;
   /* Form outline */
-  padding: 4em;
-  border: 4px solid #CCC;
-  border-radius: 1em;
+  padding: 4px;
+  border: 4px solid gray;
 }
 
-form div + div {
-  margin-top: 1em;
-}
 
 label {
   /* Uniform size & alignment */
@@ -113,7 +108,6 @@ textarea {
   font: 1em sans-serif;
 
   /* Uniform text field size */
-  width: 75%;
   box-sizing: border-box;
 
   /* Match form field borders */
