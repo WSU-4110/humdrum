@@ -66,7 +66,7 @@
   }
 </script>
 		</form>
-			
+			</div>
 		";
 
 		$i--;
@@ -79,4 +79,5 @@
 		<br><br>
 		<?php include "comment.php" ?>
 		</div>
+		
 	</div>
