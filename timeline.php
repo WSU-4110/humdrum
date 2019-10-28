@@ -2,12 +2,7 @@
 <script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
 <div class= "page">
 
-<<<<<<< HEAD
-<?php
-=======
-
-		<?php
->>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a
+	<?php
 
 	include "db_connect.php";
 	
@@ -48,11 +43,11 @@
 			<div class="postDiv">
 				<?=$spotify[$i]?>
 			</div>
-<<<<<<< HEAD
+
 			
 			<div class="postDiv">
 				<?=$content[$i]?>
-=======
+
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
 			  var ratedIndex = -1;
@@ -85,7 +80,7 @@
 
 
 		</form>
->>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a
+
 			</div>
 			
 			<br>
@@ -140,7 +135,6 @@
 			</form>
 			
 		</div>
-<<<<<<< HEAD
 		
 		<?php $i--;
 		
@@ -153,7 +147,4 @@
 	?>
 
 </div>
-=======
 
-	</div>
->>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a
