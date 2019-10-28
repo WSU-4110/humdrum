@@ -1,7 +1,13 @@
 <link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
 <div class= "page">
 
+<<<<<<< HEAD
 <?php
+=======
+
+		<?php
+>>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a
 
 	include "db_connect.php";
 	
@@ -25,6 +31,7 @@
 			array_push($spotify, $row["Spotify"]);
 		}
 
+
 		// looping thru the results backwards
 		
 		$i=sizeof($user) - 1;
@@ -41,9 +48,44 @@
 			<div class="postDiv">
 				<?=$spotify[$i]?>
 			</div>
+<<<<<<< HEAD
 			
 			<div class="postDiv">
 				<?=$content[$i]?>
+=======
+			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
+			<script>
+			  var ratedIndex = -1;
+			  $(document).ready(function(){
+				if(localStorage.getItem('ratedIndex') != null)
+					setStars(parseInt(localStorage.getItem('ratedIndex')));
+				$('.fa-star').on('click', function(){
+				  ratedIndex= parseInt($(this).data('index'));
+				  localStorage.setItem('ratedIndex', ratedIndex);
+				});
+				$('.fa-star').mouseover(function(){
+
+				  var currentIndex = parseInt($(this).data('index'));
+				  setStars(currentIndex);
+				});
+				$('.fa-star').mouseleave(function(){
+				  resetStarColors();
+				  if(ratedIndex != -1)
+					setStars(ratedIndex);
+				});
+			  });
+			  function setStars(max){
+				for(var i = 0; i <= ratedIndex; i++)
+					$('.fa-star:eq('+i+')').css('color', 'green');
+			  }
+			  function resetStarColors(){
+				$('.fa-star').css('color', 'black');
+			  }
+			</script>
+
+
+		</form>
+>>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a
 			</div>
 			
 			<br>
@@ -98,6 +140,7 @@
 			</form>
 			
 		</div>
+<<<<<<< HEAD
 		
 		<?php $i--;
 		
@@ -110,3 +153,7 @@
 	?>
 
 </div>
+=======
+
+	</div>
+>>>>>>> dba91612067dfefbe9798cd73131fd6fa759172a

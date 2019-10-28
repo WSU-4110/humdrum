@@ -26,13 +26,28 @@
 <!--form for user to input their username and password.-->
 <body>
 <div class= "wrapperlogin">
+    
+    Log in:
+   
  <form action="login.php" method="post">
   Username:<br>
   <input type="text" name="Username"><br>
   Password:<br>
   <input type="text" name="Password"><br><br>
   <input type="submit" value="Submit">
-
+    </form>
+     
+     <br><br><br><br>
+     
+Don't have an account? Sign up!<br><br>
+     
+  <form action="sign_up.php" method="post">
+  Username:<br>
+  <input type="text" name="NewUsername"><br>
+  Password:<br>
+  <input type="text" name="NewPassword"><br><br>
+  <input type="submit" value="Sign up">
+    </form>
 <?php
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.
