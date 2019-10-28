@@ -57,40 +57,34 @@
 				<i class="far fa-star" data-index="4"></i>
 			</div>
 			
-			<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-			</script>
-			
+			<!-- Star System -->
+			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
-				var ratedIndex = -1;
-				
-				$(document).ready(function(){
-					if(localStorage.getItem('ratedIndex') != null)
-						setStars(parseInt(localStorage.getItem('ratedIndex')));
-					$('.fa-star').on('click', function(){
-						ratedIndex= parseInt($(this).data('index'));
-						localStorage.setItem('ratedIndex', ratedIndex);
+			  var ratedIndex = -1;
+			  $(document).ready(function(){
+				if(localStorage.getItem('ratedIndex') != null)
+					setStars(parseInt(localStorage.getItem('ratedIndex')));
+				$('.fa-star').on('click', function(){
+				  ratedIndex= parseInt($(this).data('index'));
+				  localStorage.setItem('ratedIndex', ratedIndex);
 				});
-				
 				$('.fa-star').mouseover(function(){
-					var currentIndex = parseInt($(this).data('index'));
-					setStars(currentIndex);
+				  var currentIndex = parseInt($(this).data('index'));
+				  setStars(currentIndex);
 				});
-				
 				$('.fa-star').mouseleave(function(){
-					resetStarColors();
-					if(ratedIndex != -1)
-						setStars(ratedIndex);
-					});
+				  resetStarColors();
+				  if(ratedIndex != -1)
+					setStars(ratedIndex);
 				});
-				
-				function setStars(max){
-					for(var i = 0; i <= ratedIndex; i++)
+			  });
+			  function setStars(max){
+				for(var i = 0; i <= ratedIndex; i++)
 					$('.fa-star:eq('+i+')').css('color', 'green');
-				}
-				
-				function resetStarColors(){
-					$('.fa-star').css('color', 'black');
-				}
+			  }
+			  function resetStarColors(){
+				$('.fa-star').css('color', 'black');
+			  }
 			</script>
 			
 			<br>
