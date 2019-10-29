@@ -11,6 +11,8 @@
 		<!-- Current User's Name -->
 		<div class= "padd">
 			<h1>John Doe</h1>
+			<!-- ** follow button in progress - Not functional yet! ** -->
+			<img src="images/follow.jpg" alt="follow button">
 		</div>
 		
 	</div>
