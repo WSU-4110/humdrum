@@ -45,6 +45,20 @@
 		MUSIC LINKS
 		
 	</div>
+	
+	<div class= "box_drawn">
+	
+	<h2>Followers</h2><br>
+		
+		
+	</div>
+	
+	<div class= "box_drawn">
+	
+	<h2>Following</h2><br>
+		
+		
+	</div>
 
 
 </div>
