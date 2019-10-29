@@ -49,13 +49,43 @@
 	<div class= "box_drawn">
 	
 	<h2>Followers</h2><br>
-		
+	<?php
+	include "db_connect.php";
+	$sql = "SELECT followers FROM user_follow";
+	$result = $mysqli->query($sql);
+	if ($result->num_rows > 0) {
+    // output data of each row
+		while($row = $result->fetch_assoc()) {
+			echo "<br>" . $row["followers"]. "<br>";
+		}
+	} else {
+		echo "This user has no followers";
+	}
+	$mysqli->close();
+	
+	?>
 		
 	</div>
 	
 	<div class= "box_drawn">
 	
 	<h2>Following</h2><br>
+	<?php
+	include "db_connect.php";
+	$sql = "SELECT following FROM user_follow";
+	$result = $mysqli->query($sql);
+	if ($result->num_rows > 0) {
+    // output data of each row
+		while($row = $result->fetch_assoc()) {
+			echo "<br>" . $row["following"]. "<br>";
+		}
+	} else {
+		echo "This user is not following anyone";
+	}
+	$mysqli->close();
+	
+	
+	?>
 		
 		
 	</div>
