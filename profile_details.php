@@ -4,16 +4,23 @@
 	<div class= "padd">
 
 		<!-- Profile Picture -->
-		<div class= "padd">
-		<img src="images/ProfileTest.jpg" alt="Profile Picture." width="128" height="128">
+			<img src="images/ProfileTest.jpg" class="profile_pic" alt="Profile Picture" width="128" height="128">
+			<br>
+		<!-- Current User's Name -->
+		<div class= "box_drawn">
+			<h2>John Doe</h2><br>
+			<!-- ** follow button in progress - Not functional yet! ** -->
+			<img src="images/follow.jpg" alt="Follow Button">
 		</div>
 		
-		<!-- Current User's Name -->
-		<div class= "padd">
-			<h1>John Doe</h1>
-			<!-- ** follow button in progress - Not functional yet! ** -->
-			<img src="images/follow.jpg" alt="follow button">
-		</div>
+		<!-- Upload Profile Picture -->
+		<form action="upload.php" method="post" enctype="multipart/form-data">
+			Update profile picture:<br>
+			<input type="file" name="file">
+			<input type="submit" name="submit" value="Upload">
+		</form>
+		
+		
 		
 	</div>
 	

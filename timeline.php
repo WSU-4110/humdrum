@@ -1,6 +1,5 @@
-<link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
 <div class= "page">
+<script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
 
 	<?php
 
