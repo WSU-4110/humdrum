@@ -33,8 +33,8 @@
 				}
 				function addFollower() {
 				include "db_connect.php";
-				$sql = "INSERT INTO user_follow (followers)
-						select username
+				$sql = "INSERT INTO user_follow (followers, following)
+						select username, username
 						FROM user_pass";
 				$result = $mysqli->query($sql);
 				}
