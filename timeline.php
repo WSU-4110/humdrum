@@ -33,7 +33,7 @@
 
 
 		// looping thru the results backwards
-		
+		echo "<h2>Timeline</h2>";
 		$i=sizeof($user) - 1;
 		foreach($user as $value): ?>
 		<div class="post">
@@ -134,7 +134,7 @@
 			
 			<!-- Comment -->
 			
-           <?php print_r ($postid[$i]) ?>
+           <?php// print_r ($postid[$i]) ?>
     
 			<form action="add_comment.php" method="post">
 				Comment:<br>
@@ -147,6 +147,16 @@
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="View Post">
 			</form>
+			<?php 
+			$postid = $_SESSION['postID'];
+			$sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
+		$result = $mysqli->query($sql);
+    //$row = $result->fetch_assoc();
+
+		while($row = $result->fetch_assoc()) {
+
+		echo( $row["Username"] . " commented: ". $row["Content"] . "<br>");}
+			?>
 			
 		</div>
 		

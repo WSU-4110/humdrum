@@ -5,7 +5,11 @@
 
 <html lang="en">
  <?php
- session_start();
+ if(!isset($_SESSION))
+    {
+	session_start();
+    }
+ 
 
  if ($_SESSION["user_id"] == NULL)
 	 {

@@ -29,7 +29,7 @@
 		}
 
 		// looping thru the results backwards
-		
+		echo "<h2>Recent posts from ". $user . "</h2>";
 		$i=sizeof($content) - 1;
 		foreach($content as $value): ?>
 		<div class="post">
@@ -42,7 +42,7 @@
 			<br>
 			
 			<div class="postDiv">
-				<?=$spotify[$i]?>
+				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
 			</div>
 			
 			<div class="postDiv">
@@ -100,7 +100,7 @@
 			
 			<!-- Comment -->
 			
-            <?php print_r ($postid[$i]) ?>
+            <?php //print_r ($postid[$i]) ?>
             
 			<form action="add_comment.php" method="post">
 				Comment:<br>

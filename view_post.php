@@ -20,13 +20,17 @@ $postid = $_SESSION['postID'];
     $row = $result->fetch_assoc();
 
 
-     echo($row["User"] . "<br>");
-     echo($row["Content"] . "<br>");
-     echo($row["Spotify"] . "<br>");
-     echo($row["Time"] . "<br><br><br>");
+     echo("<h2>". $row["User"] . "</h2><br>");
+
+     //echo($row["Spotify"] . "<br>");
+	 ?>
+	 <iframe src="https://open.spotify.com/embed/artist/<?php echo $row["Spotify"]?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
+	 <?php
+	 echo("<h4>Content: ". $row["Content"] . "</h4>");
+     
 
 
-    echo "<br> this is the comment section: <br><br>";
+    
 
 
 
@@ -36,9 +40,9 @@ $sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
 
 while($row = $result->fetch_assoc()) {
 
-   echo($row["PostID"] . "<br>");
-     echo($row["Content"] . "<br>");
-     echo($row["Username"] . "<br>");
+	echo( "<h4>". $row["Username"] . " commented: ". $row["Content"] . "<br> </h4>");
+		
+     
      echo($row["Time"] . "<br><br><br>"); 
 
 }

@@ -1,7 +1,10 @@
 <?php 
 	
 	include "db_connect.php";
+	if(!isset($_SESSION))
+    {
 	session_start();
+    }
 	$new_post = $_REQUEST["post_body"];
 	$currentUser = $_SESSION["user_id"];
 	$spotifyEmbed = $_SESSION["Spotify"];
