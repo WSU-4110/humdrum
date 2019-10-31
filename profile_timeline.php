@@ -10,9 +10,10 @@
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
-	$user = array();
+	$user = $_SESSION["user_id"];
 	$content = array();
 	$spotify = array();
+    $postid = array();
 
 	if ($result->num_rows > 0) {
 		
@@ -20,26 +21,28 @@
 		
 		while($row = $result->fetch_assoc()) {
 
-			array_push($user, $row["User"]);
-			array_push($content, $row["Content"]);
-			array_push($spotify, $row["Spotify"]);
+			if($row["User"] == $_SESSION["user_id"]) {
+				array_push($content, $row["Content"]);
+				array_push($spotify, $row["Spotify"]);
+				array_push($postid, $row["PostID"]);
+			}
 		}
 
 		// looping thru the results backwards
-		
-		$i=sizeof($user) - 1;
-		foreach($user as $value): ?>
+		echo "<h2>Recent posts from ". $user . "</h2>";
+		$i=sizeof($content) - 1;
+		foreach($content as $value): ?>
 		<div class="post">
 		
 			<div class="postDiv">
 				<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
-				<b><?=$user[$i]?> </b>
+				<b><?=$user?> </b>
 			</div>
 			
 			<br>
 			
 			<div class="postDiv">
-				<?=$spotify[$i]?>
+				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
 			</div>
 			
 			<div class="postDiv">
@@ -97,10 +100,18 @@
 			
 			<!-- Comment -->
 			
-			<form action="" method="post">
+            <?php //print_r ($postid[$i]) ?>
+            
+			<form action="add_comment.php" method="post">
 				Comment:<br>
-				<input type="text" name="keyword">
+				<input type="text" name="comment">
+                <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="Submit">
+			</form>
+    
+            <form action="view_post_request.php" method="post">
+                <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
+				<input type="submit" value="View Post">
 			</form>
 			
 		</div>

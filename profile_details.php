@@ -9,10 +9,39 @@
 		</div>
 		
 		<!-- Current User's Name -->
-		<div class= "padd">
-			<h1>John Doe</h1>
+		<div class= "box_drawn">
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT username FROM user_pass";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			$row = $result->fetch_assoc();
+			echo "<h2>" . $row["username"]. "</h2><br>";
+		} else {
+			echo "error: no username in user_pass table";
+		}
+		$mysqli->close();
+
+		?>
+		
 			<!-- ** follow button in progress - Not functional yet! ** -->
-			<img src="images/follow.jpg" alt="follow button">
+			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+			<?php
+				include "db_connect.php";
+				
+				if (isset($_GET['reset'])) {
+				addFollower();
+				}
+				function addFollower() {
+				include "db_connect.php";
+				$sql = "INSERT INTO user_follow (followers, following)
+						select username, username
+						FROM user_pass";
+				$result = $mysqli->query($sql);
+				}
+				$mysqli->close();
+			?>
 		</div>
 		
 	</div>
