@@ -27,14 +27,19 @@ $postid = $_SESSION['postID'];
 
 
     echo "<br> this is the comment section: <br><br>";
+
+
+
 $sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
 	$result = $mysqli->query($sql);
-    $row = $result->fetch_assoc();
+    //$row = $result->fetch_assoc();
 
+while($row = $result->fetch_assoc()) {
 
    echo($row["PostID"] . "<br>");
      echo($row["Content"] . "<br>");
      echo($row["Username"] . "<br>");
      echo($row["Time"] . "<br><br><br>"); 
 
+}
 ?>
