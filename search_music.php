@@ -2,7 +2,10 @@
 <div class="post">
 	<?php
 	include "db_connect.php";
-
+    if(!isset($_SESSION))
+    {
+	session_start();
+    }
 	?>
 	<h2> Create a Post </h2>
 	<form action="" method="post">

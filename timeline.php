@@ -4,7 +4,10 @@
 	<?php
 
 	include "db_connect.php";
-	
+    if(!isset($_SESSION))
+    {
+	session_start();
+    }
 	// search for keyword
 	
 	$sql = "SELECT * FROM user_posts";
@@ -13,6 +16,7 @@
 	$user = array();
 	$content = array();
 	$spotify = array();
+    $postid = array();
 
 	if ($result->num_rows > 0) {
 		
@@ -23,6 +27,7 @@
 			array_push($user, $row["User"]);
 			array_push($content, $row["Content"]);
 			array_push($spotify, $row["Spotify"]);
+            array_push($postid, $row["PostID"]);
 		}
 
 
@@ -127,10 +132,18 @@
 			
 			<!-- Comment -->
 			
-			<form action="" method="post">
+           <?php print_r ($postid[$i]) ?>
+    
+			<form action="add_comment.php" method="post">
 				Comment:<br>
-				<input type="text" name="keyword">
+				<input type="text" name="comment">
+                <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="Submit">
+			</form>
+    
+            <form action="view_post_request.php" method="post">
+                <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
+				<input type="submit" value="View Post">
 			</form>
 			
 		</div>

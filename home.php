@@ -5,14 +5,14 @@
 
 <html lang="en">
  <?php
- /*session_start();
+ session_start();
 
  if ($_SESSION["user_id"] == NULL)
 	 {
      header("Location: login.php");
      die();
 	 }
-*/
+
  ?>
 
 <head>

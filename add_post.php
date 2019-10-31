@@ -1,6 +1,10 @@
 <div class= "page">
-	<?php 
-		session_start();
+	<?php
+    
+    if(!isset($_SESSION))
+    {
+	session_start();
+    }
 		include "db_connect.php";
 		
 		$new_post = $_REQUEST["post_body"];
