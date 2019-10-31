@@ -16,7 +16,7 @@ footer {
 }
 .pageTitle {
 	text-align: center;
-	color: black;
+	color: white;
 }
 header {
 	
@@ -38,15 +38,18 @@ h1 {
 	color: black;
 	
 }
+h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
 body {
 	background-color: lightblue;
 	color: #666666;
-	font-family: arial;
 }
 .wrapper {
 	display: block;
 	background-color: lightblue;
-	width:1200px;
+	min-width:1200px;
 	margin-left: auto ;
 	margin-right: auto ;
 }
@@ -59,9 +62,25 @@ body {
 .box {
 	display: float;
 	float: left;
+	min-width: 300px;
 	min-height: 1024px;
 	width: 33%;
 	border: 4px solid gray;
+}
+.box_wide {
+	display: float;
+	float: left;
+	min-width: 768px;
+	min-height: 1024px;
+	width: 33%;
+	border: 4px solid gray;
+}
+.box_drawn {
+	display: inline-block;
+	min-width: 256px;
+	margin: 20px;
+	border: 4px solid gray;
+	padding: 20px;
 }
 .page {
 	min-height: 1024px;
@@ -76,13 +95,20 @@ body {
 	background-color: white;
 	border: 4px solid black;
 	color: black;
-	font-family: Verdana;
+	font-family: Arial;
+	font-size: 1em;
 	padding: 20px;
 	padding-bottom: 40px;
 }
-.postDiv {
+.padd {
+	display: inline-block;
+	color: black;
+	font-family: Verdana;
+	padding: 10px;
+	
 	
 }
+
 		
 
 form {

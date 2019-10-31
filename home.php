@@ -5,14 +5,18 @@
 
 <html lang="en">
  <?php
- /*session_start();
+ if(!isset($_SESSION))
+    {
+	session_start();
+    }
+ 
 
  if ($_SESSION["user_id"] == NULL)
 	 {
      header("Location: login.php");
      die();
 	 }
-*/
+
  ?>
 
 <head>
@@ -41,7 +45,6 @@
 		
 		<!--Center Page - Timeline -->
 		
-		
 		<div class= "box">
 		<?php include "timeline.php" ?>
 		</div>
@@ -49,8 +52,11 @@
 		<!--Right Page - Music Search -->
 		
 		<div class="box">
-		<?php include "search_music.php" ?>
+		
+		<?php include "search_music.php";?>
+		
 		</div>
+
 	</div>
 		
 </body>
