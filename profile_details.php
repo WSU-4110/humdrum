@@ -20,12 +20,26 @@
 			echo "error: no username in user_pass table";
 		}
 		$mysqli->close();
-	
-	
+
 		?>
 		
 			<!-- ** follow button in progress - Not functional yet! ** -->
-			<img src="images/follow.jpg" alt="Follow Button">
+			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+			<?php
+				include "db_connect.php";
+				
+				if (isset($_GET['reset'])) {
+				addFollower();
+				}
+				function addFollower() {
+				include "db_connect.php";
+				$sql = "INSERT INTO user_follow (followers)
+						select username
+						FROM user_pass";
+				$result = $mysqli->query($sql);
+				}
+				$mysqli->close();
+			?>
 		</div>
 		
 		<!-- Upload Profile Picture -->
