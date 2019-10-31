@@ -48,13 +48,10 @@ Don't have an account? Sign up!<br><br>
   <input type="text" name="NewPassword"><br><br>
   <input type="submit" value="Sign up">
     </form>
-    
-
 <?php
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.
 //I reccomend commenting this out for all live demos.
-    
 include "db_connect.php";
 if ($mysqli->connect_errno)
 {
@@ -76,8 +73,6 @@ $mysqli->close();
 
     
 ?>
-    
-    <?php include "footer.php" ?>
 
 </form>
 </div>

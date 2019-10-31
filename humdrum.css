@@ -18,17 +18,12 @@ footer {
 	text-align: center;
 	color: white;
 }
-.page {
-	min-height: 1024px;
-	height: 100%;
-	border: 8px solid gray;
-	background-color: white;
-	color: black;
-	font-family: Verdana;
+header {
+	
 }
 nav {
-	position: sticky;
-	display: float;
+	position: fixed;
+	display: inline-block;
 	font-family: Verdana;
 }
 h1 {
@@ -44,7 +39,6 @@ h1 {
 	
 }
 h2 {
-	display: float;
 	font-size: 1.5em;
 	font-weight: bold;
 }
@@ -53,45 +47,47 @@ body {
 	color: #666666;
 }
 .wrapper {
-	display: float;
-	float: top;
+	display: block;
 	background-color: lightblue;
-	width: 100%;
-	min-width: 1124px;
+	min-width:1200px;
+	margin-left: auto ;
+	margin-right: auto ;
 }
 .wrapperlogin {
 	width: 600px;
 	display: float;
 	float: center;
+	
 }
 .box {
-	display: inline-table;
-	margin: 0px;
+	display: float;
+	float: left;
 	min-width: 300px;
 	min-height: 1024px;
 	width: 33%;
 	border: 4px solid gray;
 }
 .box_wide {
-	display: inline-table;
-	margin: 0px;
-	min-width: 512px;
-	min-height: 256px;
-	width: 66%;
+	display: float;
+	float: left;
+	min-width: 768px;
+	min-height: 1024px;
+	width: 33%;
 	border: 4px solid gray;
 }
 .box_drawn {
-	display: inline-table;
+	display: inline-block;
 	min-width: 256px;
-	margin: 10px;
+	margin: 20px;
 	border: 4px solid gray;
 	padding: 20px;
 }
-form {
-	display: inline-table;
-	margin: 10px;
-	border: 4px solid gray;
-	padding: 20px;
+.page {
+	min-height: 1024px;
+	border: 8px solid gray;
+	background-color: white;
+	color: black;
+	font-family: Verdana;
 }
 .post {
 	min-height:160px;
@@ -105,19 +101,23 @@ form {
 	padding-bottom: 40px;
 }
 .padd {
-	margin: 10px;
-	padding: 10px;
-	border: 4px solid black;
-}
-.profile_pic {
 	display: inline-block;
-	left: 0px;
-	top: 0px;
+	color: black;
+	font-family: Verdana;
 	padding: 10px;
+	
+	
 }
+
 		
 
-
+form {
+  /* Center the form on the page */
+  margin: 0 auto;
+  /* Form outline */
+  padding: 4px;
+  border: 4px solid gray;
+}
 
 
 label {

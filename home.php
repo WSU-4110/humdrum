@@ -5,14 +5,14 @@
 
 <html lang="en">
  <?php
- /*session_start();
+ session_start();
 
  if ($_SESSION["user_id"] == NULL)
 	 {
      header("Location: login.php");
      die();
 	 }
-*/
+
  ?>
 
 <head>
@@ -36,21 +36,23 @@
 		<!--Left Page - Profile -->
 		
 		<div class= "box">
-			<?php include "profile_timeline.php" ?>
+		<?php include "profile_timeline.php" ?>
 		</div>
 		
 		<!--Center Page - Timeline -->
 		
-		
 		<div class= "box">
-			<?php include "timeline.php" ?>
+		<?php include "timeline.php" ?>
 		</div>
 	
 		<!--Right Page - Music Search -->
 		
 		<div class="box">
-			<?php include "search_music.php" ?>
+		
+		<?php include "search_music.php";?>
+		
 		</div>
+
 	</div>
 		
 </body>
