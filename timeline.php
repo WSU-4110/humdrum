@@ -1,8 +1,9 @@
-<div class= "page">
+<link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
+<div class= "page">
 
 	<?php
-
+	
 	include "db_connect.php";
     if(!isset($_SESSION))
     {
@@ -45,7 +46,8 @@
 			<br>
 			
 			<div class="postDiv">
-				<?=$spotify[$i]?>
+				<?php //$spotify[$i]?>
+				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
 			</div>
 
 			

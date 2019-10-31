@@ -4,8 +4,10 @@
 	<div class= "padd">
 
 		<!-- Profile Picture -->
-			<img src="images/ProfileTest.jpg" class="profile_pic" alt="Profile Picture" width="128" height="128">
-			<br>
+		<div class= "padd">
+		<img src="images/ProfileTest.jpg" alt="Profile Picture." width="128" height="128">
+		</div>
+		
 		<!-- Current User's Name -->
 		<div class= "box_drawn">
 		<?php
@@ -41,15 +43,6 @@
 				$mysqli->close();
 			?>
 		</div>
-		
-		<!-- Upload Profile Picture -->
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-			Update profile picture:<br>
-			<input type="file" name="file">
-			<input type="submit" name="submit" value="Upload">
-		</form>
-		
-		
 		
 	</div>
 	
