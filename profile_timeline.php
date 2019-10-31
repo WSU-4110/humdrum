@@ -10,7 +10,7 @@
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
-	$user = array();
+	$user = $_SESSION["user_id"];
 	$content = array();
 	$spotify = array();
     $postid = array();
@@ -21,21 +21,22 @@
 		
 		while($row = $result->fetch_assoc()) {
 
-			array_push($user, $row["User"]);
-			array_push($content, $row["Content"]);
-			array_push($spotify, $row["Spotify"]);
-            array_push($postid, $row["PostID"]);
+			if($row["User"] == $_SESSION["user_id"]) {
+				array_push($content, $row["Content"]);
+				array_push($spotify, $row["Spotify"]);
+				array_push($postid, $row["PostID"]);
+			}
 		}
 
 		// looping thru the results backwards
 		
-		$i=sizeof($user) - 1;
-		foreach($user as $value): ?>
+		$i=sizeof($content) - 1;
+		foreach($content as $value): ?>
 		<div class="post">
 		
 			<div class="postDiv">
 				<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
-				<b><?=$user[$i]?> </b>
+				<b><?=$user?> </b>
 			</div>
 			
 			<br>
