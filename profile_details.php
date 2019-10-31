@@ -8,7 +8,22 @@
 			<br>
 		<!-- Current User's Name -->
 		<div class= "box_drawn">
-			<h2>John Doe</h2><br>
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT username FROM user_pass";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			$row = $result->fetch_assoc();
+			echo "<h2>" . $row["username"]. "</h2><br>";
+		} else {
+			echo "error: no username in user_pass table";
+		}
+		$mysqli->close();
+	
+	
+		?>
+		
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<img src="images/follow.jpg" alt="Follow Button">
 		</div>
