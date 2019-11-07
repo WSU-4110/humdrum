@@ -43,35 +43,44 @@
 	<input type="submit" value="Submit">
 	</form>
 	<?php
-	if (!empty($_REQUEST['keyword'])) {
-	$keywordfromform = $_REQUEST["keyword"];
+	public class hash_tag{
 
-	// search for keyword
-	//$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
-	//$result = $mysqli->query($sql);
-	function convertHashtagtoLink($taghash){
-		$expression = "/#+[a-zA-Z0-9_]/";
-		$taghash = preg_replace($expression, '<a href="hashtag.php?tag=$0">$0</a>', $taghash);
-		return $taghash;
-	}
-	$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
-	$result = $mysqli->query($sql);
+		private $keywordfromform
+		private $expression
+		private $taghash
+		private $result
 
-	$taghash = "SELECT tag FROM hashtag WHERE content LIKE '%" . $keywordfromform . "%'";
-	//$sql = convertHashtagtoLink($sql);
-	if ($result->num_rows > 0) {
-	// output data of each row
-	while($row = $result->fetch_assoc()) {
-		$taghash = convertHashtagtoLink($taghash);
-	echo "<br>" . "<b>User: </b>" . $row["user"]. "<br>" . "<b>Post: </b>" . $row["content"]. "<br>";
-	echo $taghash;
+		public function search{
+			if (!empty($_REQUEST['keyword'])){
+				$this->keywordfromform = $_REQUEST["keyword"];
+				function convertHashtagtoLink($taghash){
+					$this->expression = "/#+[a-zA-Z0-9_]/";
+					$this->taghash = preg_replace($expression, '<a href="hashtag.php?tag=$0">$0</a>', $taghash);
+					return $taghash;
+				}
+			}
+			$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
+			$this->result = $mysqli->query($sql);
 
-	}
-	} else {
-	echo "no results";
-	}
-	}
-	$mysqli->close();
+			$this->taghash = "SELECT tag FROM hashtag WHERE content LIKE '%" . $keywordfromform . "%'";
+			//$sql = convertHashtagtoLink($sql);
+
+			public function convert{
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+					$this->taghash = convertHashtagtoLink($taghash);
+					echo "<br>" . "<b>User: </b>" . $row["user"]. "<br>" . "<b>Post: </b>" . $row["content"]. "<br>";
+					echo $taghash;
+
+				}
+			} else {
+				echo "no results";
+			}
+		}
+		}
+		$mysqli->close();
+		}
 	?>
 	<br>
 
