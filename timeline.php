@@ -4,7 +4,7 @@
 
 	<?php
 	
-	include "db_connect.php";
+	include "util\db_connect.php";
     if(!isset($_SESSION))
     {
 	session_start();
@@ -37,7 +37,7 @@
 		$i=sizeof($user) - 1;
 		foreach($user as $value):
 		
-		include "post.php";
+		include "util\post.php";
 		
 		$i--;
 		

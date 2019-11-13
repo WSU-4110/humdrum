@@ -36,14 +36,14 @@
 		<!--Left Page - Profile -->
 		
 		<div class= "box_wide">
-		<?php include "profile_details.php" ?>
+		<?php include "util\profile_details.php" ?>
 		</div>
 		
 		<!--Center Page - Timeline -->
 		
 		
 		<div class= "box">
-		<?php include "profile_timeline.php" ?>
+		<?php include "util\profile_timeline.php" ?>
 		</div>
 	
 	</div>
