@@ -5,14 +5,18 @@
 
 <html lang="en">
  <?php
- /*session_start();
+ if(!isset($_SESSION))
+    {
+	session_start();
+    }
+ 
 
  if ($_SESSION["user_id"] == NULL)
 	 {
      header("Location: login.php");
      die();
 	 }
-*/
+
  ?>
 
 <head>
@@ -23,9 +27,9 @@
 </head>
 
 
-
+<nav>
 	<?php include("navbar.php"); ?>
-	
+</nav>
 	
 <br><br>
 

@@ -27,9 +27,9 @@
 </head>
 
 
-
+<nav>
 	<?php include("navbar.php"); ?>
-	
+</nav>	
 	
 <br><br>
 
