@@ -5,24 +5,28 @@
 	<?php
 	
 	include "db_connect.php";
+	
+	//set session if its not already set
     if(!isset($_SESSION))
     {
 	session_start();
     }
-	// search for keyword
 	
+	// search for keyword
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
+	// initialize arrays to store search results
 	$user = array();
 	$content = array();
 	$spotify = array();
     $postid = array();
 
+	// loop thru sql result to save the results in arrays
 	if ($result->num_rows > 0) {
 		
 		// output data of each row
-		
+		// add data to arrays
 		while($row = $result->fetch_assoc()) {
 
 			array_push($user, $row["User"]);
@@ -33,6 +37,10 @@
 
 
 		// looping thru the results backwards
+		
+		// ========================================================================================
+		// Start of for loop
+		// ========================================================================================
 		echo "<h2>Timeline</h2>";
 		$i=sizeof($user) - 1;
 		foreach($user as $value): ?>
@@ -46,7 +54,8 @@
 			<br>
 			
 			<div class="postDiv">
-				<?php //$spotify[$i]?>
+				
+				<!-- this prints the spotify embed -->
 				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
 			</div>
 
@@ -134,7 +143,6 @@
 			
 			<!-- Comment -->
 			
-           <?php// print_r ($postid[$i]) ?>
     
 			<form action="add_comment.php" method="post">
 				Comment:<br>
@@ -148,19 +156,25 @@
 				<input type="submit" value="View Post">
 			</form>
 			<?php 
-			$postid = $_SESSION['postID'];
+			// this is the tentative comment section
+			
+			/*$postid = $_SESSION['postID'];
 			$sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
 		$result = $mysqli->query($sql);
     //$row = $result->fetch_assoc();
 
 		while($row = $result->fetch_assoc()) {
 
-		echo( $row["Username"] . " commented: ". $row["Content"] . "<br>");}
+		echo( $row["Username"] . " commented: ". $row["Content"] . "<br>");}*/
 			?>
 			
 		</div>
 		
-		<?php $i--;
+		<?php 
+		// =============================================================
+		// end of the for loop
+		// =============================================================
+		$i--;
 		
 		endforeach;
 	}

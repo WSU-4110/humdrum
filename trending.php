@@ -30,18 +30,50 @@
 	<?php include "profile_timeline.php" ?>
 	</div>
 	<br><br>
-	<h1>Trending On Humdrum!</h1>
+	<h1>Explore!</h1>
 	<hr>
 	<br>
-	<h3>1. #TheBeatles</h3>
-	<h3>2. #JonasBrothers</h3>
-	<h3>3. #Kanye</h3>
-	<h3>4. #MajidJordan</h3>
-	<h3>5. #Drake</h3>
-	<h3>6. #Beyonce</h3>
-	<h3>7. #Jazz</h3>
-	<h3>8. #R&B</h3>
 	</div>
+	<?php
+	include "db_connect.php";
+	?>
+	<form action="" method="post">
+	Search for a hashtag:<br>
+	<input type="text" name="keyword"><br>
+	<input type="submit" value="Submit">
+	</form>
+	<?php
+	if (!empty($_REQUEST['keyword'])) {
+	$keywordfromform = $_REQUEST["keyword"];
+
+	// search for keyword
+	//$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
+	//$result = $mysqli->query($sql);
+	function convertHashtagtoLink($taghash){
+		$expression = "/#+[a-zA-Z0-9_]/";
+		$taghash = preg_replace($expression, '<a href="hashtag.php?tag=$0">$0</a>', $taghash);
+		return $taghash;
+	}
+	$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
+	$result = $mysqli->query($sql);
+
+	$taghash = "SELECT tag FROM hashtag WHERE content LIKE '%" . $keywordfromform . "%'";
+	//$sql = convertHashtagtoLink($sql);
+	if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+		$taghash = convertHashtagtoLink($taghash);
+	echo "<br>" . "<b>User: </b>" . $row["user"]. "<br>" . "<b>Post: </b>" . $row["content"]. "<br>";
+	echo $taghash;
+
+	}
+	} else {
+	echo "no results";
+	}
+	}
+	$mysqli->close();
+	?>
+	<br>
 
 		<footer>
 		Copyright © 2019 Team 7
