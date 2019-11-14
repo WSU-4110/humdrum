@@ -29,7 +29,7 @@
     
     Log in:
    
- <form action="login.php" method="post">
+ <form action="util\login.php" method="post">
   Username:<br>
   <input type="text" name="Username"><br>
   Password:<br>
@@ -41,7 +41,7 @@
      
 Don't have an account? Sign up!<br><br>
      
-  <form action="sign_up.php" method="post">
+  <form action="util\sign_up.php" method="post">
   Username:<br>
   <input type="text" name="NewUsername"><br>
   Password:<br>
