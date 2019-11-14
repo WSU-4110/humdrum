@@ -12,8 +12,7 @@
 		<div class= "box_drawn">
 		<?php
 		include "db_connect.php";
-	
-		$sql = "SELECT username FROM user_pass WHERE username = 'Jacob'";
+		$sql = "SELECT username FROM user_pass";
 		$result = $mysqli->query($sql);
 		if ($result->num_rows > 0) {
 		// output data of each row
@@ -29,25 +28,16 @@
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
 			<?php
-			if(!isset($_SESSION))
-				{
-				session_start();
-				}
- 
 				include "db_connect.php";
 				
 				if (isset($_GET['reset'])) {
 				addFollower();
 				}
 				function addFollower() {
-				$currUser = $_SESSION["user_id"];
-				
 				include "db_connect.php";
 				$sql = "INSERT INTO user_follow (followers, following)
 						select username, username
-						FROM user_pass
-						WHERE username = '$currUser'
-						LIMIT 1";
+						FROM user_pass";
 				$result = $mysqli->query($sql);
 				}
 				$mysqli->close();

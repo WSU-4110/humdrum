@@ -24,20 +24,17 @@
 		";
 		}
   ?>
-<?php include "profile_timeline.php" ?>
+<?php include "util\profile_timeline.php" ?>
 </div>
 <br><br>
 <h1>Trending On Humdrum!</h1>
 <hr>
 <br>
 </div>
-<?php
-include "db_connect.php";
-?>
 <div class="page">
 <div class="post">
 	<?php
-	include "db_connect.php";
+	include "util\db_connect.php";
 	?>
 
 	<?php

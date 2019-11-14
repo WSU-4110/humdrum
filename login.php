@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "db_connect.php";
+include "util\db_connect.php";
 if ($mysqli->connect_errno)//
 {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;

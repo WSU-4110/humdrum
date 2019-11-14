@@ -3,7 +3,7 @@
  //include "home.php";
  
  //include "login.php";
- //include "add_post.php";
+ //include "util\add_post.php";
  
  $_SESSION["user_id"]= NULL;
 ?>
@@ -52,7 +52,7 @@ Don't have an account? Sign up!<br><br>
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.
 //I reccomend commenting this out for all live demos.
-include "db_connect.php";
+include "util\db_connect.php";
 if ($mysqli->connect_errno)
 {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
