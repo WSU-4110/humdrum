@@ -1,4 +1,5 @@
 <?php 
+static function searchSpotify(){
 if(!isset($_SESSION))
     {
 	session_start();
@@ -8,7 +9,7 @@ include "db_connect.php";
 require 'vendor/autoload.php';
 
 
-
+if(isset($_POST['SearchVal'])){
 // ========================================
 $sql = "SELECT * FROM SpotifyKey";
 $result = $mysqli->query($sql);
@@ -51,6 +52,11 @@ echo $_SESSION['spotify'];
 
 //header("Location: home.php");
 	//exit;
+<<<<<<< Updated upstream:simpleSpotifyApp.php
+=======
+}
+}
+>>>>>>> Stashed changes:util/simpleSpotifyApp.php
 ?>	
 
 <iframe src="https://open.spotify.com/embed/artist/<?php echo $test;?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
