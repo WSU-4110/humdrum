@@ -1,7 +1,9 @@
 <div class="post">
 		
 			<div class="postDiv">
-				<img src="images/ProfileTest.jpg" alt="Profile Picture." width="32" height="32">
+				<?php
+				include 'profile_pic.php';
+				?>
 				<b><?=$user[$i]?> </b>
 			</div>
 			
