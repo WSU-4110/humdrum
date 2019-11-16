@@ -1,4 +1,6 @@
 <link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
+<?php require 'vendor/autoload.php';
+	  include "db_connect.php";?>
 <div class= "page">
 
 	<div class= "padd">
@@ -58,6 +60,72 @@
 	</div>
 	
 	<br>
+	
+	<!-- login to spotify -->
+	
+	<div class= "box_drawn">
+	
+	<form action = "spotifySignIn.php" method = "post">
+	<input type="submit" value="Sign in to your Spotify Account">
+	</form>
+	
+	
+	</div>
+	
+	<br>
+	
+	<div class = "box_drawn">
+	<h2> User Playlists </h2>
+	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
+	<?php 
+		include "db_connect.php";
+		$api = new SpotifyWebAPI\SpotifyWebAPI();
+
+		// Fetch the saved access token from somewhere. A database for example.
+		$sql = "SELECT * FROM SpotifyKey";
+		$result = $mysqli->query($sql);
+
+		while($row = $result->fetch_assoc()){
+		$SpotifyKey = $row["AccessToken"];}
+
+		// set the access token
+		$api->setAccessToken($SpotifyKey);
+
+		// It's now possible to request data about the currently authenticated user
+		// get current user
+		$userId = $api->me();
+		
+		// print user login
+		echo $userId->id . "<br> <hr>";
+		// get playlists for that user
+		$playlists = $api->getUserPlaylists($userId->id);
+		
+		// set array to store each playlist
+		$playlistArray = array();
+		$iter = 0;
+		// for each loop to go thru results and store each playlist in an array
+		foreach ($playlists->items as $currPlaylist) {
+			array_push($playlistArray, $currPlaylist->uri);
+			
+			$playlistArray[$iter] = str_replace("spotify:playlist:", "", $playlistArray[$iter]);
+			$iter++;
+		}
+		
+		// create variable to iterate thru array
+		$iter = 0;
+		$numberOfPlaylists = sizeof($playlistArray);
+		while($iter <4 && $iter < $numberOfPlaylists){
+		// put the playlist uri in an embed link 
+			// break php code so that you can print html code 
+			?>
+			<iframe src="https://open.spotify.com/embed/playlist/
+			<?php echo $playlistArray[$iter];?>" width="300" height="380" frameborder="0" 
+			allowtransparency="true" allow="encrypted-media"></iframe> <?php 
+			
+			$iter++; // iterate
+			}
+	?>
+	</div>
 	
 	<!-- Bio -->
 	<div class= "box_drawn">

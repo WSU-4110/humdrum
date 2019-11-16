@@ -48,6 +48,10 @@ Don't have an account? Sign up!<br><br>
   <input type="text" name="NewPassword"><br><br>
   <input type="submit" value="Sign up">
     </form>
+
+  
+  
+ 
 <?php
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.
