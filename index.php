@@ -29,7 +29,7 @@
     
     Log in:
    
- <form action="util\login.php" method="post">
+ <form action="login.php" method="post">
   Username:<br>
   <input type="text" name="Username"><br>
   Password:<br>
