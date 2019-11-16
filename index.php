@@ -41,7 +41,7 @@
      
 Don't have an account? Sign up!<br><br>
      
-  <form action="util\sign_up.php" method="post">
+  <form action="sign_up.php" method="post">
   Username:<br>
   <input type="text" name="NewUsername"><br>
   Password:<br>

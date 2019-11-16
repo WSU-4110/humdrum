@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include "db_connect.php";
+    include "util/db_connect.php";
 				
 
     $sql = "SELECT username FROM user_pass";
