@@ -20,6 +20,4 @@ $accessToken = $session->getAccessToken();
 echo $accessToken;
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($accessToken);
-$sql = "INSERT INTO SpotifyKey (AccessToken) VALUES ('$accessToken')";
-		$result = $mysqli->query($sql);
 ?>

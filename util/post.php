@@ -9,7 +9,7 @@
 			
 			<div class="postDiv">
 				<?php //$spotify[$i]?>
-				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
+				<iframe src="https://open.spotify.com/embed/artist/<?php echo $spotify[$i];?>" width="300" height="250" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
 			</div>
 
 			

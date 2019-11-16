@@ -6,6 +6,7 @@
  //include "util\add_post.php";
  
  $_SESSION["user_id"]= NULL;
+ echo $_SESSION["user_id"];
 ?>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">

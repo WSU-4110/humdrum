@@ -82,11 +82,17 @@
 		$api = new SpotifyWebAPI\SpotifyWebAPI();
 
 		// Fetch the saved access token from somewhere. A database for example.
-		$sql = "SELECT * FROM SpotifyKey";
+		$currUser = $_SESSION["user_id"];
+		echo $currUser ."<br>";
+		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$currUser'";
 		$result = $mysqli->query($sql);
-
-		while($row = $result->fetch_assoc()){
-		$SpotifyKey = $row["AccessToken"];}
+		
+		//while($row = $result->fetch_assoc()){
+		$row = $result->fetch_assoc();
+	
+		$SpotifyKey = $row["SpotifyId"];
+		//}
+		
 
 		// set the access token
 		$api->setAccessToken($SpotifyKey);
@@ -96,7 +102,7 @@
 		$userId = $api->me();
 		
 		// print user login
-		echo $userId->id . "<br> <hr>";
+		echo "Spotify Username: ". $userId->id . "<br> <hr>";
 		// get playlists for that user
 		$playlists = $api->getUserPlaylists($userId->id);
 		
@@ -119,7 +125,7 @@
 			// break php code so that you can print html code 
 			?>
 			<iframe src="https://open.spotify.com/embed/playlist/
-			<?php echo $playlistArray[$iter];?>" width="300" height="380" frameborder="0" 
+			<?php echo $playlistArray[$iter];?>" width="300" height="200" frameborder="0" 
 			allowtransparency="true" allow="encrypted-media"></iframe> <?php 
 			
 			$iter++; // iterate

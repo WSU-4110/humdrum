@@ -29,8 +29,8 @@ if(isset($_POST['SearchVal'])){
 // ========================================
 $sql = "SELECT * FROM SpotifyKey";
 $result = $mysqli->query($sql);
-$row = $result->fetch_assoc();
-$SpotifyKey = $row["AccessToken"];
+while($row = $result->fetch_assoc()){
+		$SpotifyKey = $row["AccessToken"];}
 //echo $SpotifyKey;
 
 

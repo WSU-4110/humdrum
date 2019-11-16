@@ -18,7 +18,8 @@
 	$content = array();
 	$spotify = array();
     $postid = array();
-
+	
+	$iter = 0;
 	if ($result->num_rows > 0) {
 		
 		// output data of each row
@@ -34,14 +35,15 @@
 
 		// looping thru the results backwards
 		echo "<h2>Timeline</h2>";
-		$i=sizeof($user) - 1;
-		foreach($user as $value):
+		$numberOfPosts=sizeof($user) - 1;
+		$i = 0;
+		while($i <$numberOfPosts && $i <4){
 		
 		include "util\post.php";
 		
-		$i--;
-		
-		endforeach;
+		$i++;
+		}
+		//endforeach;
 	}
 	
 	else {
