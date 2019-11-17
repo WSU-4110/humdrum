@@ -88,6 +88,7 @@
 		while($row = $result->fetch_assoc()) {
 			if($row["username"] == $profile_user) {
 				$join_date = $row["join_date"];
+				$bio = $row["bio"];
 			}
 		}
 		
@@ -105,7 +106,7 @@
 	<div class= "box_drawn">
 	
 	<h2>Bio:</h2><br>
-		Just a Wayne State computer scientist.
+		<?=$bio?>
 		
 	</div>
 	
