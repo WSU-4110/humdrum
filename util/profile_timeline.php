@@ -30,9 +30,10 @@
 			}
 		}
 
-
-		// looping thru the results backwards
-		echo "<h2>Timeline:</h2>";
+		
+		// looping thru the results backwards ?>
+		<h2>Posts from <?=$user[0]?>:</h2>
+		<?php
 		$i=sizeof($user) - 1;
 		foreach($user as $value):
 		

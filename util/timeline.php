@@ -22,11 +22,12 @@
 		// output data of each row
 		
 		while($row = $result->fetch_assoc()) {
-
-			array_push($user, $row["User"]);
-			array_push($content, $row["Content"]);
-			array_push($spotify, $row["Spotify"]);
-            array_push($postid, $row["PostID"]);
+			if($row["User"] != $_SESSION["user_id"]) {
+				array_push($user, $row["User"]);
+				array_push($content, $row["Content"]);
+				array_push($spotify, $row["Spotify"]);
+				array_push($postid, $row["PostID"]);
+			}
 		}
 
 
