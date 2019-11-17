@@ -56,12 +56,30 @@
 	
 	<br>
 	
+	
+	<!-- Calculating post number... -->
+	<?php
+	$post_num = 0;
+	if ($result->num_rows > 0) {
+		
+		// Add post to counter
+		
+		while($row = $result->fetch_assoc()) {
+			if($row["User"] == $_SESSION["user_id"]) {
+				$post_num++;
+			}
+		}
+
+	}
+	?>
+	
+	
 	<!-- Information -->
 	<div class= "box_drawn">
 	
 	<h2>Stats:</h2><br>
 		Join date: 8/30/2025<br>
-		Posts: 12<br>
+		Posts: <?=$post_num?><br>
 		
 	</div>
 	
