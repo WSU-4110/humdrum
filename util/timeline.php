@@ -1,10 +1,8 @@
-<link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="https://kit.fontawesome.com/5704b8a73a.js" crossorigin="anonymous"></script>
 <div class= "page">
 
 	<?php
 	
-	include "util\db_connect.php";
+	include "db_connect.php";
     if(!isset($_SESSION))
     {
 	session_start();
@@ -33,13 +31,13 @@
 
 
 		// looping thru the results backwards
-		echo "<h2>Timeline</h2>";
+		echo "<h2>Timeline:</h2>";
 		$i=sizeof($user) - 1;
 		foreach($user as $value):
 		
-		include "util\post.php";
-		
-		$i--;
+			include "post.php";
+			
+			$i--;
 		
 		endforeach;
 	}
@@ -50,4 +48,3 @@
 	?>
 
 </div>
-
