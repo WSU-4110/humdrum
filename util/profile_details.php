@@ -1,29 +1,37 @@
 <link href="humdrum.css" rel="stylesheet" type="text/css" media="screen" />
 <div class= "page">
 
+	<?php
+	include "db_connect.php"; 
+    if(!isset($_SESSION))
+    {
+	session_start();
+    }
+	// search for keyword
+	
+	$sql = "SELECT * FROM user_posts";
+	$result = $mysqli->query($sql);
+	?>
+
+
 	<div class= "padd">
+
+
 
 		<!-- Profile Picture -->
 		<div class= "padd">
-		<img src="images/ProfileTest.jpg" alt="Profile Picture." width="128" height="128">
+			<?php
+			$pic = "profile_pics/". $_SESSION["user_id"];
+			?>
+
+			<img src=<?=$pic?> alt="Profile Picture." width="96" height="96">
 		</div>
+		
+		
 		
 		<!-- Current User's Name -->
 		<div class= "box_drawn">
-		<?php
-		include "db_connect.php";
-		$sql = "SELECT username FROM user_pass";
-		$result = $mysqli->query($sql);
-		if ($result->num_rows > 0) {
-		// output data of each row
-			$row = $result->fetch_assoc();
-			echo "<h2>" . $row["username"]. "</h2><br>";
-		} else {
-			echo "error: no username in user_pass table";
-		}
-		$mysqli->close();
-
-		?>
+		<h2><?=$_SESSION["user_id"]?></h2>
 		
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
