@@ -11,6 +11,10 @@
 	
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
+	
+	
+	// WILL change to reflect which profile page is used
+	$profile_user = $_SESSION["user_id"];
 	?>
 
 
@@ -21,7 +25,7 @@
 		<!-- Profile Picture -->
 		<div class= "padd">
 			<?php
-			$pic = "profile_pics/". $_SESSION["user_id"];
+			$pic = "profile_pics/". $profile_user;
 			?>
 
 			<img src=<?=$pic?> alt="Profile Picture." width="96" height="96">
@@ -31,7 +35,7 @@
 		
 		<!-- Current User's Name -->
 		<div class= "box_drawn">
-		<h2><?=$_SESSION["user_id"]?></h2>
+		<h2><?=$profile_user?></h2>
 		
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
@@ -65,7 +69,7 @@
 		// Add post to counter
 		
 		while($row = $result->fetch_assoc()) {
-			if($row["User"] == $_SESSION["user_id"]) {
+			if($row["User"] == $profile_user) {
 				$post_num++;
 			}
 		}
@@ -76,11 +80,23 @@
 	
 	<!-- Information -->
 	<div class= "box_drawn">
-	
-	<h2>Stats:</h2><br>
-		Join date: 8/30/2025<br>
-		Posts: <?=$post_num?><br>
+		<?php
+		include "db_connect.php"; 
+		$sql = "SELECT * FROM user_pass";
+		$result = $mysqli->query($sql);
 		
+		while($row = $result->fetch_assoc()) {
+			if($row["username"] == $profile_user) {
+				$join_date = $row["join_date"];
+			}
+		}
+		
+		?>
+		
+		<h2>Stats:</h2><br>
+			Join date: <?=$join_date?><br>
+			Posts: <?=$post_num?><br>
+			
 	</div>
 	
 	<br>
