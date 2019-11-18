@@ -19,8 +19,12 @@ if ($result->num_rows > 0)
         {
 			
 			$_SESSION["user_id"] =  $row["username"];
-            header("Location: home.php");//sends user to homepage in the event of a valid login
-            exit;
+			if($_POST["UseSpotify"] == "true"){
+				header("Location: spotifySignIn.php");//sends user to homepage in the event of a valid login
+				exit;}
+			else{
+				header("Location: util/getAccessId.php");//sends user to homepage in the event of a valid login
+				exit;}
         }
     }
     

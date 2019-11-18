@@ -16,8 +16,17 @@ $session = new SpotifyWebAPI\Session(
 $session->requestCredentialsToken();
 $accessToken = $session->getAccessToken();
 
-
+// trying out having the access tokens stored in session variables
+$_SESSION["accessToken"] = $accessToken;
+// put the access token in the database	
+$sql = "INSERT INTO SpotifyKey (AccessToken) VALUES ('$accessToken')";
+	$result = $mysqli->query($sql);
 echo $accessToken;
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($accessToken);
+//$testResult = $api->getUserPlaylists("scooterhoward96");
+//var_dump($testResult);
+
+header("Location: ../home.php");//sends user to homepage in the event of a valid login
+	exit;
 ?>

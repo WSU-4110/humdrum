@@ -36,12 +36,14 @@
 		// looping thru the results backwards
 		echo "<h2>Timeline</h2>";
 		$numberOfPosts=sizeof($user) - 1;
-		$i = 0;
-		while($i <$numberOfPosts && $i <4){
+		$i = $numberOfPosts;
+		$i2 = 0;
+		while($i2 <$numberOfPosts && $i2 <4){
 		
 		include "util\post.php";
 		
-		$i++;
+		$i--;
+		$i2++;
 		}
 		//endforeach;
 	}

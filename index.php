@@ -35,9 +35,11 @@
   <input type="text" name="Username"><br>
   Password:<br>
   <input type="text" name="Password"><br><br>
+  <input type="checkbox" name="UseSpotify" value ="true"> Sign in with Spotify!
   <input type="submit" value="Submit">
     </form>
      
+	 
      <br><br><br><br>
      
 Don't have an account? Sign up!<br><br>
