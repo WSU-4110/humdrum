@@ -7,6 +7,7 @@
     {
 	session_start();
     }
+	require 'C:/wamp64/www/humdrum/vendor/autoload.php';
 	// search for keyword
 	
 	$sql = "SELECT * FROM user_posts";
@@ -14,7 +15,7 @@
 	
 	
 	// WILL change to reflect which profile page is used
-	$profile_user = $_SESSION["user_reder"];
+	$profile_user = $_SESSION["user_id"];
 	?>
 
 
@@ -182,3 +183,79 @@
 
 
 </div>
+
+
+<br>
+	<div class = "box_drawn">
+	<h2> User Playlists </h2>
+	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
+	<?php 
+		include "db_connect.php";
+		$api = new SpotifyWebAPI\SpotifyWebAPI();
+
+		// Fetch the saved access token from somewhere. A database for example.
+		$currUser = $_SESSION["user_id"];
+		echo $currUser ."<br>";
+		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$currUser'";
+		$result = $mysqli->query($sql);
+		
+		//while($row = $result->fetch_assoc()){
+		$row = $result->fetch_assoc();
+		
+		// get the username from the sql query. 
+		//this will be used in the getUserPlaylists function
+		if($row["SpotifyId"] != null){
+			$spotifyUsername = $row["SpotifyId"];
+			
+			
+			// there should be a session variable set with the access token
+			// that allows us to use the functions in the api
+			$accessToken = $_SESSION["accessToken"];
+			
+			
+			// set the access token
+			$api->setAccessToken($accessToken);
+
+			// It's now possible to request data about the currently authenticated user
+			// get current user. api->me returns json text that has variable information 
+			// that we can use
+			//$userId = $api->me();
+			
+			// print user login
+			echo "Spotify Username: ". $spotifyUsername . "<br> <hr>";
+			// get playlists for that user
+			//$playlists = $api->getUserPlaylists($userId->id);
+			$playlists = $api->getUserPlaylists($spotifyUsername);
+			
+			// set array to store each playlist
+			$playlistArray = array();
+			$iter = 0;
+			// for each loop to go thru results and store each playlist in an array
+			foreach ($playlists->items as $currPlaylist) {
+				array_push($playlistArray, $currPlaylist->id);
+				
+				//$playlistArray[$iter] = str_replace("spotify:playlist:", "", $playlistArray[$iter]);
+				$iter++;
+			}
+			
+			// create variable to iterate thru array
+			$iter = 0;
+			$numberOfPlaylists = sizeof($playlistArray);
+			while($iter <4 && $iter < $numberOfPlaylists){
+			// put the playlist uri in an embed link 
+				// break php code so that you can print html code 
+				?>
+				<iframe src="https://open.spotify.com/embed/playlist/
+				<?php echo $playlistArray[$iter];?>" width="300" height="200" frameborder="0" 
+				allowtransparency="true" allow="encrypted-media"></iframe> <?php 
+				
+				$iter++; // iterate
+				}
+				
+		}
+		else{
+			echo "<br> No playlists to show :( <br>";
+		}
+	?>
+	</div>
+	
