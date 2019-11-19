@@ -2,17 +2,18 @@
 
 // Include the database configuration file
 include 'db_connect.php';
+if(isset($_POST['profile_user'])) $profile_user=$_POST['profile_user'];
 $statusMsg = '';
 
 
 
 // File upload path
-$targetDir = "profile_pics/";
+$targetDir = "../profile_pics/";
 $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-$user = $_SESSION["user_id"];
-$pic_name = $user . '.jpeg';
+$pic_path = $targetDir . $profile_user . '.jpeg';
+$pic_name = $profile_user . '.jpeg';
 
 
 
@@ -27,26 +28,18 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 			
 			$extension = strtolower($fileType); 
 			switch ($extension) {
-				case 'jpg':
-					imagejpeg($filename, $pic_name);
-				break;
-				case 'jpeg':
-				   
 				case 'gif':
-				   $image = imagecreatefromgif($filename);
+				   $image = imagecreatefromgif($targetFilePath);
 				break;
 				case 'png':
-				   $image = imagecreatefrompng($filename);
+				   $image = imagecreatefrompng($targetFilePath);
 				break;
 			}
 			
-            $insert = $db->query("UPTATE images SET file_name = new-".$pic_name.", uploaded_on = new-NOW() [ WHERE file_name =  ".$pic_name." ]");
-			
-            if($insert){
-                $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
-            }else{
-                $statusMsg = "File upload failed, please try again.";
-            } 
+            if(copy($targetFilePath, $pic_path))
+				$statusMsg = $pic_name." uploaded successfully.";
+			else
+				$statusMsg = "Sorry, there was an error uploading your file.";
         }
 		else{
             $statusMsg = "Sorry, there was an error uploading your file.";
@@ -61,6 +54,7 @@ else{
 }
 
 // Display status message
-echo $statusMsg;
+header("Location: ../profile.php");//redirects back to front page in the case of no registered users
+    exit;
 
 ?>

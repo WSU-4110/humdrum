@@ -25,7 +25,7 @@
 		<!-- Profile Picture -->
 		<div class= "padd">
 			<?php
-			$pic = "profile_pics/". $profile_user;
+			$pic = "profile_pics/". $profile_user . '.jpeg';
 			?>
 
 			<img src=<?=$pic?> alt="Profile Picture." width="96" height="96">
@@ -60,6 +60,23 @@
 	
 	<br>
 	
+	
+	<?php
+	if ($profile_user = $_SESSION["user_id"]) {
+		?>
+		<div class= "padd">
+			<form action="util/upload_img.php" method="post" enctype="multipart/form-data">
+			Select Image File to Upload:
+			<input type="file" name="file">
+			<input type="submit" name="submit" value="Upload">
+			<input type='hidden' name='profile_user' value='<?php echo "$profile_user";?>'> 
+		</form>
+		</div>
+		
+		<br>
+		<?php
+	}
+	?>
 	
 	<!-- Calculating post number... -->
 	<?php
