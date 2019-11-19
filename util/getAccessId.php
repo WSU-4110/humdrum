@@ -1,12 +1,12 @@
 <?php
 
+include "db_connect.php";
 if(!isset($_SESSION))
     {
 	session_start();
     }
-include "db_connect.php";
 
-require 'C:/wamp64/www/humdrum/vendor/autoload.php';
+
 
 $session = new SpotifyWebAPI\Session(
     'afb26d61a1f34dfd958e31def5798792',
