@@ -12,9 +12,6 @@
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 	
-	
-	// WILL change to reflect which profile page is used
-	$profile_user = $_SESSION["user_reder"];
 	?>
 
 
@@ -36,6 +33,8 @@
 		<!-- Current User's Name -->
 		<div class= "box_drawn">
 		<h2><?=$profile_user?></h2>
+		<?php
+		if ($profile_user != $_SESSION["user_id"]) { ?>
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
 			<?php
@@ -45,14 +44,15 @@
 				addFollower();
 				}
 				function addFollower() {
-				include "db_connect.php";
+				include "util/db_connect.php";
 				$sql = "INSERT INTO user_follow (followers, following)
 						select username, username
 						FROM user_pass";
 				$result = $mysqli->query($sql);
 				}
 				$mysqli->close();
-			?>
+		}
+		?>
 		</div>
 		
 	</div>
@@ -61,7 +61,7 @@
 	
 	
 	<?php
-	if ($profile_user = $_SESSION["user_id"]) {
+	if ($profile_user == $_SESSION["user_id"]) {
 		?>
 		<div class= "padd">
 			<form action="util/upload_img.php" method="post" enctype="multipart/form-data">
