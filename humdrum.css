@@ -14,14 +14,6 @@ footer {
 	padding: 10px;
 }
 .pageTitle {
-	align: center;
-	display: block;
-	font-size: 4em;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
 	text-align: center;
 	color: white;
 }
@@ -46,9 +38,6 @@ h1 {
 	
 }
 h2 {
-	display: inline-block;
-	padding-left: 16px;
-	padding-right: 16px;
 	font-size: 1.5em;
 	font-weight: bold;
 }
@@ -64,15 +53,9 @@ body {
 	margin-right: auto ;
 }
 .wrapperlogin {
-	font-weight: bold;
-	font-family: Verdana;
-	font-size: 1em;
-	color: black;
-	display: block;
 	width: 600px;
+	display: float;
 	float: center;
-	margin-left: auto ;
-	margin-right: auto ;
 	
 }
 .box {
@@ -131,8 +114,8 @@ form {
   /* Center the form on the page */
   margin: 0 auto;
   /* Form outline */
-  padding: 8px;
-  border: 4px solid black;
+  padding: 4px;
+  border: 4px solid gray;
 }
 
 

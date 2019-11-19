@@ -20,9 +20,7 @@
 	
 <header>
 <div class= "pageTitle">
-<br>
-<i>humdrum</i><br>
-<br>
+<h1><i>humdrum</i></h1><br><br>
 </div>
 </header>
 
@@ -30,7 +28,7 @@
 <body>
 <div class= "wrapperlogin">
     
-  <h2>Log in:</h2>
+    Log in:
    
  <form action="login.php" method="post">
   Username:<br>
@@ -44,7 +42,7 @@
 	 
      <br><br><br><br>
      
-<h2>Don't have an account? Sign up!</h2>
+Don't have an account? Sign up!<br><br>
      
   <form action="sign_up.php" method="post">
   Username:<br>
