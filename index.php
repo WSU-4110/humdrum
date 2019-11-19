@@ -3,9 +3,10 @@
  //include "home.php";
  
  //include "login.php";
- //include "add_post.php";
+ //include "util\add_post.php";
  
  $_SESSION["user_id"]= NULL;
+ echo $_SESSION["user_id"];
 ?>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,9 @@
 	
 <header>
 <div class= "pageTitle">
-<h1><i>humdrum</i></h1><br><br>
+<br>
+<i>humdrum</i><br>
+<br>
 </div>
 </header>
 
@@ -27,19 +30,21 @@
 <body>
 <div class= "wrapperlogin">
     
-    Log in:
+  <h2>Log in:</h2>
    
  <form action="login.php" method="post">
   Username:<br>
   <input type="text" name="Username"><br>
   Password:<br>
   <input type="text" name="Password"><br><br>
+  <input type="checkbox" name="UseSpotify" value ="true"> Sign in with Spotify!
   <input type="submit" value="Submit">
     </form>
      
+	 
      <br><br><br><br>
      
-Don't have an account? Sign up!<br><br>
+<h2>Don't have an account? Sign up!</h2>
      
   <form action="sign_up.php" method="post">
   Username:<br>
@@ -48,11 +53,15 @@ Don't have an account? Sign up!<br><br>
   <input type="text" name="NewPassword"><br><br>
   <input type="submit" value="Sign up">
     </form>
+
+  
+  
+ 
 <?php
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.
 //I reccomend commenting this out for all live demos.
-include "db_connect.php";
+include "util\db_connect.php";
 if ($mysqli->connect_errno)
 {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
