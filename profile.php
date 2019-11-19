@@ -16,7 +16,6 @@
      header("Location: login.php");
      die();
 	 }
-
  ?>
 
 <head>
@@ -36,7 +35,12 @@
 <body>
 
 	<div class= "wrapper">
-
+		<?php
+		if (!isset($_GET['user']))
+			$profile_user = $_SESSION["user_id"];
+		else
+			$profile_user = $_GET['user'];
+		?>
 		<!--Left Page - Profile -->
 		
 		<div class= "box_wide">

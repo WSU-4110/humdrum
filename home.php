@@ -38,7 +38,9 @@
 <body>
 
 	<div class= "wrapper">
-
+		<?php
+			$profile_user = $_SESSION["user_id"];
+		?>
 		<!--Left Page - Profile -->
 
 		<div class= "box">

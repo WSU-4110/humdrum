@@ -16,13 +16,15 @@
 	$content = array();
 	$spotify = array();
     $postid = array();
-
+	
+	
+	
 	if ($result->num_rows > 0) {
 
 		// output data of each row
 
 		while($row = $result->fetch_assoc()) {
-			if($row["User"] == $_SESSION["user_id"]) {
+			if($row["User"] == $profile_user) {
 				array_push($user, $row["User"]);
 				array_push($content, $row["Content"]);
 				array_push($spotify, $row["Spotify"]);
@@ -32,7 +34,7 @@
 
 		if ($user != NULL) {
 			// looping thru the results backwards ?>
-			<h2>Posts from <?=$user[0]?>:</h2>
+			<h2>Posts from <?=$profile_user?>:</h2>
 			<?php
 			$i=sizeof($user) - 1;
 			foreach($user as $value):
