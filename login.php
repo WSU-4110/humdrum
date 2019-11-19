@@ -23,7 +23,7 @@ if ($result->num_rows > 0)
 				header("Location: spotifySignIn.php");//sends user to homepage in the event of a valid login
 				exit;}
 			else{
-				header("Location: util/getAccessId.php");//sends user to homepage in the event of a valid login
+				header("Location: ../home.php");//sends user to homepage in the event of a valid login
 				exit;}
         }
     }

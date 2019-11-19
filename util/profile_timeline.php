@@ -30,18 +30,19 @@
 			}
 		}
 
+		if ($user != NULL) {
+			// looping thru the results backwards ?>
+			<h2>Posts from <?=$user[0]?>:</h2>
+			<?php
+			$i=sizeof($user) - 1;
+			foreach($user as $value):
 
-		// looping thru the results backwards ?>
-		<h2>Posts from <?=$user[0]?>:</h2>
-		<?php
-		$i=sizeof($user) - 1;
-		foreach($user as $value):
+				include "post.php";
 
-			include "post.php";
+				$i--;
 
-			$i--;
-
-		endforeach;
+			endforeach;
+		}
 	}
 
 	else {
