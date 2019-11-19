@@ -6,6 +6,7 @@
  //include "util\add_post.php";
  
  $_SESSION["user_id"]= NULL;
+ echo $_SESSION["user_id"];
 ?>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,9 +35,11 @@
   <input type="text" name="Username"><br>
   Password:<br>
   <input type="text" name="Password"><br><br>
+  <input type="checkbox" name="UseSpotify" value ="true"> Sign in with Spotify!
   <input type="submit" value="Submit">
     </form>
      
+	 
      <br><br><br><br>
      
 Don't have an account? Sign up!<br><br>
@@ -48,6 +51,10 @@ Don't have an account? Sign up!<br><br>
   <input type="text" name="NewPassword"><br><br>
   <input type="submit" value="Sign up">
     </form>
+
+  
+  
+ 
 <?php
 
 //the following code is for testing purposes only and displays all currently registered usernames and passwords.

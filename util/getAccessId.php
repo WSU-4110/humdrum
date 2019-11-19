@@ -6,7 +6,7 @@ if(!isset($_SESSION))
     }
 include "db_connect.php";
 
-require 'vendor/autoload.php';
+require 'C:/wamp64/www/humdrum/vendor/autoload.php';
 
 $session = new SpotifyWebAPI\Session(
     'afb26d61a1f34dfd958e31def5798792',
@@ -16,10 +16,17 @@ $session = new SpotifyWebAPI\Session(
 $session->requestCredentialsToken();
 $accessToken = $session->getAccessToken();
 
-
+// trying out having the access tokens stored in session variables
+$_SESSION["accessToken"] = $accessToken;
+// put the access token in the database	
+$sql = "INSERT INTO SpotifyKey (AccessToken) VALUES ('$accessToken')";
+	$result = $mysqli->query($sql);
 echo $accessToken;
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($accessToken);
-$sql = "INSERT INTO SpotifyKey (AccessToken) VALUES ('$accessToken')";
-		$result = $mysqli->query($sql);
+//$testResult = $api->getUserPlaylists("scooterhoward96");
+//var_dump($testResult);
+
+header("Location: ../home.php");//sends user to homepage in the event of a valid login
+	exit;
 ?>

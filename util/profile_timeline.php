@@ -1,14 +1,14 @@
 <div class= "page">
 
 	<?php
-	
+
 	include "db_connect.php";
     if(!isset($_SESSION))
     {
 	session_start();
     }
 	// search for keyword
-	
+
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
@@ -18,9 +18,9 @@
     $postid = array();
 
 	if ($result->num_rows > 0) {
-		
+
 		// output data of each row
-		
+
 		while($row = $result->fetch_assoc()) {
 			if($row["User"] == $_SESSION["user_id"]) {
 				array_push($user, $row["User"]);
@@ -30,20 +30,20 @@
 			}
 		}
 
-		
+
 		// looping thru the results backwards ?>
 		<h2>Posts from <?=$user[0]?>:</h2>
 		<?php
 		$i=sizeof($user) - 1;
 		foreach($user as $value):
-		
+
 			include "post.php";
-			
+
 			$i--;
-		
+
 		endforeach;
 	}
-	
+
 	else {
 		echo "no results";
 	}

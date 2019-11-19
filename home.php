@@ -5,12 +5,12 @@
 
 <html lang="en">
  <?php
- 
+
  if(!isset($_SESSION))
     {
 	session_start();
     }
- 
+
 
  if ($_SESSION["user_id"] == NULL)
 	 {
@@ -31,8 +31,8 @@
 
 <nav>
 	<?php include("navbar.php"); ?>
-</nav>	
-	
+</nav>
+
 <br><br>
 
 <body>
@@ -40,25 +40,25 @@
 	<div class= "wrapper">
 
 		<!--Left Page - Profile -->
-		
+
 		<div class= "box">
 			<?php include ('util\profile_timeline.php');?>
 		</div>
-		
+
 		<!--Center Page - Timeline -->
-		
+
 		<div class= "box">
 			<?php include ('util\timeline.php');?>
 		</div>
-	
+
 		<!--Right Page - Music Search -->
-		
+
 		<div class="box">
 			<?php include ('util\search_music.php');?>
 		</div>
 
 	</div>
-		
+
 </body>
 
 

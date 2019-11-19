@@ -2,7 +2,7 @@
 <div class="post">
 	<?php
 	include "db_connect.php";
-	//include "simpleSpotifyApp.php";
+	//include "util\simpleSpotifyApp.php";
 	
     if(!isset($_SESSION)) 
     { 
@@ -11,9 +11,27 @@
 	?>
 	<h2> Create a Post </h2>
 	
-	<form action="simpleSpotifyApp.php" method="post">
+	<form action="util/simpleSpotifyApp" method="post">
 	Search for a song/artist:<br>
 	<input type="text" name="SearchVal"><br>
+	<select>
+	<?php 
+	if(isset($_SESSION["SpotifyResult"])){
+	foreach($_SESSION['SpotifyResult'] as $key=>$value)
+    {
+		?>
+		<option>
+		<?php
+			// and print out the values
+			echo $value;
+			?>
+		</option>
+		
+		<?php
+    }}
+	
+	?>
+	</select>
 	<input type="submit" value="Submit">
 	
 	</form>
@@ -23,7 +41,7 @@
 	<div>
 	<!-- type your post here -->
 
-	<form action="add_post.php" method = "post" >
+	<form action="util\add_post.php" method = "post" >
 	Submit a post:<br>
 	<textarea id="msg" name="post_body"></textarea>
 	<br>
