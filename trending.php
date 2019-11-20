@@ -27,7 +27,7 @@
 		";
 		}
 		?>
-	<?php include "profile_timeline.php" ?>
+	<?php include "util\profile_timeline.php" ?>
 	</div>
 	<br><br>
 	<h1>Explore!</h1>
@@ -35,7 +35,7 @@
 	<br>
 	</div>
 	<?php
-	include "db_connect.php";
+	include "util\db_connect.php";
 	?>
 	<form action="" method="post">
 	Search for a hashtag:<br>

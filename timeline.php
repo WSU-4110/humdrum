@@ -3,14 +3,14 @@
 <div class= "page">
 
 	<?php
-	
-	include "db_connect.php";
+
+	include "util\db_connect.php";
     if(!isset($_SESSION))
     {
 	session_start();
     }
 	// search for keyword
-	
+
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
@@ -19,10 +19,11 @@
 	$spotify = array();
     $postid = array();
 
+	$iter = 0;
 	if ($result->num_rows > 0) {
-		
+
 		// output data of each row
-		
+
 		while($row = $result->fetch_assoc()) {
 
 			array_push($user, $row["User"]);
@@ -36,18 +37,20 @@
 		echo "<h2>Timeline</h2>";
 		$i=sizeof($user) - 1;
 		foreach($user as $value):
-		
+
 		include "post.php";
-		
+
 		$i--;
-		
-		endforeach;
+
+		$i--;
+		$i2++;
+		}
+		//endforeach;
 	}
-	
+
 	else {
 		echo "no results";
 	}
 	?>
 
 </div>
-
