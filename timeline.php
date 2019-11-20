@@ -3,30 +3,32 @@
 <div class= "page">
 
 	<?php
-	
+
 	include "util\db_connect.php";
     if(!isset($_SESSION))
     {
 	session_start();
     }
 	// search for keyword
-	
+
 	$sql = "SELECT * FROM user_posts";
 	$result = $mysqli->query($sql);
 
 	$user = array();
+	$tag = array();
 	$content = array();
 	$spotify = array();
     $postid = array();
-	
+
 	$iter = 0;
 	if ($result->num_rows > 0) {
-		
+
 		// output data of each row
-		
+
 		while($row = $result->fetch_assoc()) {
 
 			array_push($user, $row["User"]);
+			array_push($tag, $row["hashtag"]);
 			array_push($content, $row["Content"]);
 			array_push($spotify, $row["Spotify"]);
             array_push($postid, $row["PostID"]);
@@ -39,19 +41,18 @@
 		$i = $numberOfPosts;
 		$i2 = 0;
 		while($i2 <$numberOfPosts && $i2 <4){
-		
+
 		include "util\post.php";
-		
+
 		$i--;
 		$i2++;
 		}
 		//endforeach;
 	}
-	
+
 	else {
 		echo "no results";
 	}
 	?>
 
 </div>
-

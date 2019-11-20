@@ -4,18 +4,18 @@
 	<?php
 	include "db_connect.php";
 	//include "util\simpleSpotifyApp.php";
-	
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
 	?>
-	
+
 	<form action="util/simpleSpotifyApp" method="post">
 	Search for a song/artist:<br>
 	<input type="text" name="SearchVal"><br>
 	<select>
-	<?php 
+	<?php
 	if(isset($_SESSION["SpotifyResult"])){
 	foreach($_SESSION['SpotifyResult'] as $key=>$value)
     {
@@ -26,16 +26,16 @@
 			echo $value;
 			?>
 		</option>
-		
+
 		<?php
     }}
-	
+
 	?>
 	</select>
 	<input type="submit" value="Submit">
-	
+
 	</form>
-	
+
 	<br>
 
 	<div>
@@ -45,8 +45,10 @@
 	Submit a post:<br>
 	<textarea id="msg" name="post_body"></textarea>
 	<br>
+	Add a hashtag:<br>
+	<textarea id="msg" name="tag_hash"></textarea>
+	<br>
 	<input type="submit" value="Submit">
-
 	</form>
 
 

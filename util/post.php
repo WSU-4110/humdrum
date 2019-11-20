@@ -1,5 +1,5 @@
 <div class="post">
-			
+
 			<a href="profile.php?user=<?=$user[$i]?>">
 			<div class="postDiv">
 				<?php
@@ -8,7 +8,7 @@
 				<b><?=$user[$i]?> </b>
 			</div>
 			</a>
-			
+
 			<br>
 
 			<div class="postDiv">
@@ -19,6 +19,7 @@
 
 			<div class="postDiv">
 				<?=$content[$i]?>
+				<?=$tag[$i]?>
 
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
