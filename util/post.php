@@ -102,26 +102,27 @@
 
            <?php// print_r ($postid[$i]) ?>
 
-			<form action="add_comment.php" method="post">
+			<form action="util/add_comment.php" method="post">
+			<?php
+			//$postid = $_SESSION['postID'];
+			$sql = "SELECT * FROM comments WHERE PostID = " . $postid[$i]. "";
+			$result = $mysqli->query($sql);
+			//$row = $result->fetch_assoc();
+
+			while($row = $result->fetch_assoc()) {
+				
+			echo $row["Username"] . " commented: ". $row["Content"] . "<br>";}
+			?>
 				Comment:<br>
 				<input type="text" name="comment">
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="Submit">
 			</form>
 
-            <form action="view_post_request.php" method="post">
+            <form action="util/view_post_request.php" method="post">
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="View Post">
 			</form>
-			<?php
-			//$postid = $_SESSION['postID'];
-			//$sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
-			//$result = $mysqli->query($sql);
-			//$row = $result->fetch_assoc();
-
-			//while($row = $result->fetch_assoc()) {
-
-			//echo( $row["Username"] . " commented: ". $row["Content"] . "<br>");}
-			?>
+			
 
 		</div>
