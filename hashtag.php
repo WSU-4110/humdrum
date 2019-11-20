@@ -41,7 +41,7 @@
 
 
 	// search for keyword
-	$sql = "SELECT hashtag, COUNT('tag') AS value_occurence FROM user_posts GROUP BY hashtag ORDER BY value_occurence DESC LIMIT 3";
+	$sql = "SELECT hashtag, COUNT('tag') AS value_occurence FROM user_posts GROUP BY hashtag ORDER BY value_occurence DESC LIMIT 100";
 	$result = $mysqli->query($sql);
 
 	if ($result->num_rows > 0) {
