@@ -50,21 +50,20 @@
 	//$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
 	//$result = $mysqli->query($sql);
 	function convertHashtagtoLink($taghash){
-		$expression = "/#+[a-zA-Z0-9_]/";
+		$expression = "/#+([a-zA-Z0-9_])+/";
 		$taghash = preg_replace($expression, '<a href="hashtag.php?tag=$0">$0</a>', $taghash);
 		return $taghash;
 	}
 	$sql = "SELECT User, Content, hashtag FROM user_posts WHERE hashtag LIKE '%" . $keywordfromform . "%'";
 	$result = $mysqli->query($sql);
 
-	$taghash = "SELECT hashtag FROM user_posts WHERE hashtag LIKE '%" . $keywordfromform . "%'";
+	$taghash =  $keywordfromform;
 	//$sql = convertHashtagtoLink($sql);
 	if ($result->num_rows > 0) {
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
 		$taghash = convertHashtagtoLink($taghash);
-	echo "<br>" . "<b>User: </b>" . $row["User"]. "<br>" . "<b>Post: </b>" . $row["Content"]. $row["hashtag"]."<br>";
-	echo $taghash;
+	echo "<br>" . "<b>User: </b>" . $row["User"]. "<br>" . "<b>Post: </b>" . $row["Content"]. $taghash."<br>";
 
 	}
 	} else {
