@@ -47,7 +47,7 @@
 	if ($result->num_rows > 0) {
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
-	echo $row["hashtag"]."<br>";
+	echo '<font size="5">'.$row["hashtag"].'</font>'."<br>";
 
 	}
 	}
