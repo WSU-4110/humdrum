@@ -7,7 +7,7 @@
     {
 	session_start();
     }
-	require 'C:/wamp64/www/humdrum/vendor/autoload.php';
+	require 'vendor/autoload.php';
 	// search for keyword
 	
 	$sql = "SELECT * FROM user_posts";
