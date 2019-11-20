@@ -1,5 +1,5 @@
 <div class="post">
-
+			
 			<a href="profile.php?user=<?=$user[$i]?>">
 			<div class="postDiv">
 				<?php
@@ -8,7 +8,7 @@
 				<b><?=$user[$i]?> </b>
 			</div>
 			</a>
-
+			
 			<br>
 
 			<div class="postDiv">
@@ -19,60 +19,36 @@
 
 			<div class="postDiv">
 				<?=$content[$i]?>
-				<?=$tag[$i]?>
 
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
-			var ratedIndex = -1, uID = 0;
-			$(document).ready(function(){
-				resetStarColors();
-
-				if(localStorage.getItem('ratedIndex') != null){
+			  var ratedIndex = -1;
+			  $(document).ready(function(){
+				if(localStorage.getItem('ratedIndex') != null)
 					setStars(parseInt(localStorage.getItem('ratedIndex')));
-				}
-
 				$('.fa-star').on('click', function(){
-					ratedIndex = parseInt($(this).data('index'));
-					localStorage.setItem('ratedIndex', ratedIndex);
-					saveToTheDB();
+				  ratedIndex= parseInt($(this).data('index'));
+				  localStorage.setItem('ratedIndex', ratedIndex);
 				});
-
 				$('.fa-star').mouseover(function(){
-					resetStarColors();
-					var currentIndex = parseInt($(this).data('index'));
-					setStars(currentIndex);
-				});
 
+				  var currentIndex = parseInt($(this).data('index'));
+				  setStars(currentIndex);
+				});
 				$('.fa-star').mouseleave(function(){
-					resetStarColors();
-					if(ratedIndex != -1){
-						setStars(ratedIndex);
-					}
+				  resetStarColors();
+				  if(ratedIndex != -1)
+					setStars(ratedIndex);
 				});
-			});
-			function saveToTheDB(){
-				$.ajax({
-					url:\"timeline.php\",
-					method:\"POST\",
-					dataType:'json',
-					data:{
-						save:1,
-						uID: uID,
-						ratedIndex: ratedIndex
-					}, success: function(r){
-						uID = r.id;
-					}
-				});
-			}
-			function setStars(max){
-				for(var i=0; i<= max; i++){
+			  });
+			  function setStars(max){
+				for(var i = 0; i <= ratedIndex; i++)
 					$('.fa-star:eq('+i+')').css('color', 'green');
-				}
-			}
-			function resetStarColors(){
-				$('.fa-star').css('color','black')
-			}
-		</script>
+			  }
+			  function resetStarColors(){
+				$('.fa-star').css('color', 'black');
+			  }
+			</script>
 
 
 		</form>
@@ -83,11 +59,11 @@
 
 			<div class="postDiv">
 				Average Rating:
-				<i class=\"far fa-star\" data-index=\"0\"></i>
-				<i class=\"far fa-star\" data-index=\"1\"></i>
-				<i class=\"far fa-star\" data-index=\"2\"></i>
-				<i class=\"far fa-star\" data-index=\"3\"></i>
-				<i class=\"far fa-star\" data-index=\"4\"></i>
+				<i class="far fa-star" data-index="0"></i>
+				<i class="far fa-star" data-index="1"></i>
+				<i class="far fa-star" data-index="2"></i>
+				<i class="far fa-star" data-index="3"></i>
+				<i class="far fa-star" data-index="4"></i>
 			</div>
 
 			<!-- Star System -->
@@ -138,10 +114,10 @@
 				<input type="submit" value="View Post">
 			</form>
 			<?php
-			$postid = $_SESSION['postID'];
-			$sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
-		$result = $mysqli->query($sql);
-    //$row = $result->fetch_assoc();
+			//$postid = $_SESSION['postID'];
+			//$sql = "SELECT * FROM comments WHERE PostID = " . $postid . "";
+			//$result = $mysqli->query($sql);
+			//$row = $result->fetch_assoc();
 
 			//while($row = $result->fetch_assoc()) {
 
@@ -149,15 +125,3 @@
 			?>
 
 		</div>
-
-		<?php $i--;
-
-		endforeach;
-	}
-
-	else {
-		echo "no results";
-	}
-	?>
-
-</div>
