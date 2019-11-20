@@ -1,5 +1,6 @@
 <?php
 include 'util/db_connect.php';
+require 'vendor/autoload.php';
 if(!isset($_SESSION))
     {
 	session_start();

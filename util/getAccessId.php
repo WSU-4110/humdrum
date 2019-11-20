@@ -1,12 +1,12 @@
 <?php
 
-include "db_connect.php";
 if(!isset($_SESSION))
     {
 	session_start();
     }
+include "db_connect.php";
 
-
+require 'C:/wamp64/www/humdrum/vendor/autoload.php';
 
 $session = new SpotifyWebAPI\Session(
     'afb26d61a1f34dfd958e31def5798792',
@@ -18,6 +18,8 @@ $accessToken = $session->getAccessToken();
 
 // trying out having the access tokens stored in session variables
 $_SESSION["accessToken"] = $accessToken;
+
+// OUTDATED. DOES NOT NEED TO PUT IN DATABASE ANYMORE BUT IT DOESN'T HURT
 // put the access token in the database	
 $sql = "INSERT INTO SpotifyKey (AccessToken) VALUES ('$accessToken')";
 	$result = $mysqli->query($sql);

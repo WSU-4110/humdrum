@@ -1,12 +1,14 @@
 <div class="post">
-
+			
+			<a href="profile.php?user=<?=$user[$i]?>">
 			<div class="postDiv">
 				<?php
 				include 'profile_pic.php';
 				?>
 				<b><?=$user[$i]?> </b>
 			</div>
-
+			</a>
+			
 			<br>
 
 			<div class="postDiv">

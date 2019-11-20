@@ -1,4 +1,5 @@
 <div class="page">
+<h2> Create a Post </h2>
 <div class="post">
 	<?php
 	include "db_connect.php";
@@ -9,7 +10,6 @@
         session_start(); 
     } 
 	?>
-	<h2> Create a Post </h2>
 	
 	<form action="util/simpleSpotifyApp" method="post">
 	Search for a song/artist:<br>
