@@ -62,6 +62,11 @@ h2 {
 	font-weight: bold;
 }
 
+h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
 .wrapper {
 	display: block;
 	background-color: white;
@@ -70,7 +75,6 @@ h2 {
 	margin-right: auto ;
 }
 .wrapperlogin {
-	font-weight: bold;
 	font-family: Verdana;
 	font-size: 1em;
 	color: black;

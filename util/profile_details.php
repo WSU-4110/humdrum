@@ -31,32 +31,33 @@
 		</div>
 		
 		
-		<!-- Current User's Name -->
-		
-		<h2><?=$profile_user?></h2>
-		
-		<?php
-		if ($profile_user != $_SESSION["user_id"]) { ?>
-		
-		
-			<!-- ** follow button in progress - Not functional yet! ** -->
-			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+		<div class= "padd">
+			<!-- Current User's Name -->
+			<h3><?=$profile_user?></h3>
+			
 			<?php
-				include "db_connect.php";
-				
-				if (isset($_GET['reset'])) {
-				addFollower();
-				}
-				function addFollower() {
-				include "util/db_connect.php";
-				$sql = "INSERT INTO user_follow (followers, following)
-						select username, username
-						FROM user_pass";
-				$result = $mysqli->query($sql);
-				}
-				$mysqli->close();
-		}
-		?>
+			if ($profile_user != $_SESSION["user_id"]) { ?>
+			
+			
+				<!-- ** follow button in progress - Not functional yet! ** -->
+				<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+				<?php
+					include "db_connect.php";
+					
+					if (isset($_GET['reset'])) {
+					addFollower();
+					}
+					function addFollower() {
+					include "util/db_connect.php";
+					$sql = "INSERT INTO user_follow (followers, following)
+							select username, username
+							FROM user_pass";
+					$result = $mysqli->query($sql);
+					}
+					$mysqli->close();
+			}
+			?>
+		</div>
 	</div>
 	<br>
 	
@@ -121,7 +122,7 @@
 		
 		?>
 		
-		<h2>Stats:</h2><br>
+		<h3>Stats:</h3><br>
 			Join date: <?=$join_date?><br>
 			Posts: <?=$post_num?><br>
 			
@@ -132,7 +133,7 @@
 	<!-- Bio -->
 	<div class= "box_drawn">
 	
-	<h2>Bio:</h2><br>
+	<h3>Bio:</h3><br>
 		<?=$bio?>
 		
 	</div>
@@ -142,7 +143,7 @@
 	<!-- Reccomendations -->
 	<div class= "box_drawn">
 	
-	<h2>Music Reccomendations:</h2><br>
+	<h3>Music Reccomendations:</h3><br>
 		<?=$music_links?>
 		
 	</div>
@@ -151,7 +152,7 @@
 	<div>
 		<div class= "box_drawn">
 		
-		<h2>Followers</h2><br>
+		<h3>Followers</h3><br>
 		<?php
 		include "db_connect.php";
 		$sql = "SELECT followers FROM user_follow";
@@ -172,7 +173,7 @@
 		
 		<div class= "box_drawn">
 		
-		<h2>Following</h2><br>
+		<h3>Following</h3><br>
 		<?php
 		include "db_connect.php";
 		$sql = "SELECT following FROM user_follow";
@@ -194,7 +195,7 @@
 
 	<br>
 	<div class = "box_drawn">
-	<h2> User Playlists </h2>
+	<h3> User Playlists </h3>
 	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
 	<?php 
 		include "db_connect.php";
