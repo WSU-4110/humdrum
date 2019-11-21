@@ -16,6 +16,8 @@
      header("Location: login.php");
      die();
 	 }
+
+	
  ?>
 
 <head>
@@ -51,7 +53,24 @@
 		
 		
 		<div class= "box float_right">
-		<?php include "util\profile_timeline.php" ?>
+		<?php 
+		include "util/db_connect.php";
+		$loggedInUser = $_SESSION["user_id"];
+		
+		$sql = "SELECT * FROM user_follow WHERE followers = '$loggedInUser' AND following = '$profile_user' ";
+		//$sql = "insert into `user_follow` values($currentUser, $userToFollow)"
+		$result = $mysqli->query($sql);
+
+		if ($result->num_rows > 0) {
+			include "util\profile_timeline.php";}
+		else{
+			echo "<h2> You don't follow this person </h2>";
+		}
+			
+			?>
+
+		
+		
 		</div>
 	
 	</div>
