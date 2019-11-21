@@ -46,7 +46,12 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     </div>
   </div>
   
-  
+  <!-- Search for a user -->
+  <form action="profile.php" method="GET">
+  Search for a user: 
+  <input type="text" name="user"><br>
+  <input type="submit" value="Submit">
+    </form>
 
   
   <div class="w3-dropdown-hover w3-hide-small w3-right">
