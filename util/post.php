@@ -1,14 +1,15 @@
 <div class="post">
-			
+
 			<a href="profile.php?user=<?=$user[$i]?>">
-			<div class="postDiv">
+			<div class="pic_padd">
 				<?php
-				include 'profile_pic.php';
+				$pic = "../profile_pics/". $user[$i] . ".jpeg";
 				?>
+				<img src=<?=$pic?> alt=" " width="48" height="48">
 				<b><?=$user[$i]?> </b>
 			</div>
 			</a>
-			
+
 			<br>
 
 			<div class="postDiv">
@@ -19,6 +20,10 @@
 
 			<div class="postDiv">
 				<?=$content[$i]?>
+				<?php
+				if (isset($tag[$i]))
+					echo $tag[$i];
+				?>
 
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>

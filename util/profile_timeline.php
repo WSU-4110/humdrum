@@ -13,12 +13,13 @@
 	$result = $mysqli->query($sql);
 
 	$user = array();
+	$tag = array();
 	$content = array();
 	$spotify = array();
     $postid = array();
-	
-	
-	
+
+
+
 	if ($result->num_rows > 0) {
 
 		// output data of each row
@@ -27,6 +28,7 @@
 			if($row["User"] == $profile_user) {
 				array_push($user, $row["User"]);
 				array_push($content, $row["Content"]);
+				array_push($tag, $row["hashtag"]);
 				array_push($spotify, $row["Spotify"]);
 				array_push($postid, $row["PostID"]);
 			}
@@ -34,7 +36,7 @@
 
 		if ($user != NULL) {
 			// looping thru the results backwards ?>
-			<h2>Posts from <?=$profile_user?>:</h2>
+			<h2>Posts from <b><?=$profile_user?>:</b></h2>
 			<?php
 			$i=sizeof($user) - 1;
 			foreach($user as $value):
@@ -51,5 +53,5 @@
 		echo "no results";
 	}
 	?>
-
+<br>
 </div>

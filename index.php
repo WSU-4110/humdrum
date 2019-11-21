@@ -27,7 +27,8 @@
 </header>
 
 <!--form for user to input their username and password.-->
-<body>
+<body bgcolor="lightblue">
+
 <div class= "wrapperlogin">
     
   <h2>Log in:</h2>

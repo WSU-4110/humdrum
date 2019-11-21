@@ -7,7 +7,7 @@
     {
 	session_start();
     }
-	require 'C:/wamp64/www/humdrum/vendor/autoload.php';
+	require 'vendor/autoload.php';
 	// search for keyword
 	
 	$sql = "SELECT * FROM user_posts";
@@ -16,54 +16,55 @@
 	?>
 
 
-	<div class= "padd">
-
-
-
+	
+	
+	<div class= "box_drawn">
+	
+	
 		<!-- Profile Picture -->
-		<div class= "padd">
+		<div class= "float_left">
 			<?php
 			$pic = "profile_pics/". $profile_user . '.jpeg';
 			?>
 
-			<img src=<?=$pic?> alt="Profile Picture." width="96" height="96">
+			<div class= "pic_shadow"><img src=<?=$pic?> alt="Profile Picture." width="96" height="96"></div>
 		</div>
 		
 		
-		
-		<!-- Current User's Name -->
-		<div class= "box_drawn">
-		<h2><?=$profile_user?></h2>
-		<?php
-		if ($profile_user != $_SESSION["user_id"]) { ?>
-			<!-- ** follow button in progress - Not functional yet! ** -->
-			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+		<div class= "padd">
+			<!-- Current User's Name -->
+			<h3><?=$profile_user?></h3>
+			
 			<?php
-				include "db_connect.php";
-				
-				if (isset($_GET['reset'])) {
-				addFollower();
-				}
-				function addFollower() {
-				include "util/db_connect.php";
-				$sql = "INSERT INTO user_follow (followers, following)
-						select username, username
-						FROM user_pass";
-				$result = $mysqli->query($sql);
-				}
-				$mysqli->close();
-		}
-		?>
+			if ($profile_user != $_SESSION["user_id"]) { ?>
+			
+			
+				<!-- ** follow button in progress - Not functional yet! ** -->
+				<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
+				<?php
+					include "db_connect.php";
+					
+					if (isset($_GET['reset'])) {
+					addFollower();
+					}
+					function addFollower() {
+					include "util/db_connect.php";
+					$sql = "INSERT INTO user_follow (followers, following)
+							select username, username
+							FROM user_pass";
+					$result = $mysqli->query($sql);
+					}
+					$mysqli->close();
+			}
+			?>
 		</div>
-		
 	</div>
-	
 	<br>
 	
 	
+	
 	<?php
-	if ($profile_user == $_SESSION["user_id"]) {
-		?>
+	if ($profile_user == $_SESSION["user_id"]) { ?>
 		<div class= "padd">
 			<form action="util/upload_img.php" method="post" enctype="multipart/form-data">
 			Select Image File to Upload:
@@ -75,8 +76,9 @@
 		
 		<br>
 		<?php
-	}
-	?>
+	} ?>
+	
+	
 	
 	<!-- Calculating post number... -->
 	<?php
@@ -106,12 +108,21 @@
 			if($row["username"] == $profile_user) {
 				$join_date = $row["join_date"];
 				$bio = $row["bio"];
+				$music_links = $row["music_links"];
 			}
 		}
 		
+		if (!isset($join_date))
+			$join_date = "NULL";
+		if (!isset($bio))
+			$bio = "This user hasn't shared their biography yet...";
+		if (!isset($music_links))
+			$music_links = "This user hasn't shared their music yet...";
+		
+		
 		?>
 		
-		<h2>Stats:</h2><br>
+		<h3>Stats:</h3><br>
 			Join date: <?=$join_date?><br>
 			Posts: <?=$post_num?><br>
 			
@@ -122,7 +133,7 @@
 	<!-- Bio -->
 	<div class= "box_drawn">
 	
-	<h2>Bio:</h2><br>
+	<h3>Bio:</h3><br>
 		<?=$bio?>
 		
 	</div>
@@ -132,71 +143,94 @@
 	<!-- Reccomendations -->
 	<div class= "box_drawn">
 	
-	<h2>Music Reccomendations:</h2><br>
-		MUSIC LINKS
+	<h3>Music Reccomendations:</h3><br>
+		<?=$music_links?>
 		
 	</div>
 	
-	<div class= "box_drawn">
 	
-	<h2>Followers</h2><br>
-	<?php
-	include "db_connect.php";
-	$sql = "SELECT followers FROM user_follow";
-	$result = $mysqli->query($sql);
-	if ($result->num_rows > 0) {
-    // output data of each row
-		while($row = $result->fetch_assoc()) {
-			echo "<br>" . $row["followers"]. "<br>";
+	<div>
+		<div class= "box_drawn">
+		
+		<h3>Followers:</h3><br>
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT followers FROM user_follow";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			while($row = $result->fetch_assoc()) {
+				$followers = $row["followers"];
+				if ($followers != $profile_user) {
+					?>
+					<a href="profile.php?user=<?=$followers?>">
+						<div class="pic_padd">
+							<?php
+							$pic = "../profile_pics/". $followers . ".jpeg";
+							?>
+							<img src=<?=$pic?> alt=" " width="48" height="48">
+							<b><?=$followers?></b>
+						</div>
+						<br>
+					</a>
+					<?php
+				}
+			}
+		} else {
+			echo "This user has no followers";
 		}
-	} else {
-		echo "This user has no followers";
-	}
-	$mysqli->close();
-	
-	?>
+		$mysqli->close();
 		
-	</div>
-	
-	<div class= "box_drawn">
-	
-	<h2>Following</h2><br>
-	<?php
-	include "db_connect.php";
-	$sql = "SELECT following FROM user_follow";
-	$result = $mysqli->query($sql);
-	if ($result->num_rows > 0) {
-    // output data of each row
-		while($row = $result->fetch_assoc()) {
-			echo "<br>" . $row["following"]. "<br>";
+		?>
+			
+		</div>
+		
+		<div class= "box_drawn">
+		
+		<h3>Following:</h3><br>
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT following FROM user_follow";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			while($row = $result->fetch_assoc()) {
+				$following = $row["following"];
+				if ($following != $profile_user) {
+					?>
+					<a href="profile.php?user=<?=$following?>">
+						<div class="pic_padd">
+							<?php
+							$pic = "../profile_pics/". $following . ".jpeg";
+							?>
+							<img src=<?=$pic?> alt=" " width="48" height="48">
+							<b><?=$following?></b>
+						</div>
+						<br>
+					</a>
+					<?php
+				}
+			}
+		} else {
+			echo "This user is not following anyone";
 		}
-	} else {
-		echo "This user is not following anyone";
-	}
-	$mysqli->close();
-	
-	
-	?>
-		
-		
+		$mysqli->close();
+		?>
+		</div>
 	</div>
+	
 
 
-</div>
-
-
-<br>
+	<br>
 	<div class = "box_drawn">
-	<h2> User Playlists </h2>
+	<h3>User Playlists:</h3>
 	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
 	<?php 
 		include "db_connect.php";
 		$api = new SpotifyWebAPI\SpotifyWebAPI();
 
 		// Fetch the saved access token from somewhere. A database for example.
-		$currUser = $_SESSION["user_id"];
-		echo $currUser ."<br>";
-		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$currUser'";
+		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$profile_user'";
 		$result = $mysqli->query($sql);
 		
 		//while($row = $result->fetch_assoc()){
@@ -222,7 +256,7 @@
 			//$userId = $api->me();
 			
 			// print user login
-			echo "Spotify Username: ". $spotifyUsername . "<br> <hr>";
+			echo "Spotify Username: <b>". $spotifyUsername . "</b><br> <hr>";
 			// get playlists for that user
 			//$playlists = $api->getUserPlaylists($userId->id);
 			$playlists = $api->getUserPlaylists($spotifyUsername);
@@ -258,4 +292,5 @@
 		}
 	?>
 	</div>
-	
+	<br>
+</div>
