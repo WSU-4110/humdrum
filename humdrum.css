@@ -151,7 +151,14 @@ form {
   box-shadow: 0px 0px 4px black;
   border-radius: 4px;
 }
-
+form#nav {
+	display: inline-block;
+	margin-top: 10px;
+	background-color: transparent;
+	padding: 0px;
+	box-shadow: none;
+	border-radius: 0px;
+}
 
 label {
   /* Uniform size & alignment */

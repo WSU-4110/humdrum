@@ -47,9 +47,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   </div>
   
   <!-- Search for a user -->
-  <form action="profile.php" method="GET">
+  <form action="profile.php" method="GET" id= "nav">
   Search for a user: 
-  <input type="text" name="user"><br>
+  <input type="text" name="user">
   <input type="submit" value="Submit">
     </form>
 
