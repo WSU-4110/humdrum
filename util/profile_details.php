@@ -160,7 +160,21 @@
 		if ($result->num_rows > 0) {
 		// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "<br>" . $row["followers"]. "<br>";
+				$followers = $row["followers"];
+				if ($followers != $profile_user) {
+					?>
+					<a href="profile.php?user=<?=$followers?>">
+						<div class="pic_padd">
+							<?php
+							$pic = "../profile_pics/". $followers . ".jpeg";
+							?>
+							<img src=<?=$pic?> alt=" " width="48" height="48">
+							<b><?=$followers?></b>
+						</div>
+						<br>
+					</a>
+					<?php
+				}
 			}
 		} else {
 			echo "This user has no followers";
@@ -181,7 +195,21 @@
 		if ($result->num_rows > 0) {
 		// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "<br>" . $row["following"]. "<br>";
+				$following = $row["following"];
+				if ($following != $profile_user) {
+					?>
+					<a href="profile.php?user=<?=$following?>">
+						<div class="pic_padd">
+							<?php
+							$pic = "../profile_pics/". $following . ".jpeg";
+							?>
+							<img src=<?=$pic?> alt=" " width="48" height="48">
+							<b><?=$following?></b>
+						</div>
+						<br>
+					</a>
+					<?php
+				}
 			}
 		} else {
 			echo "This user is not following anyone";
