@@ -63,11 +63,12 @@ $spotifyInstance->setArtists($nameArray);
 $aristNames = array();
 $artistNames = $spotifyInstance->getArtistNames();
 
-$test = $resultArray[0];
+$test = array();
+$test = $resultArray;
 
 $test = str_replace("spotify:artist:", "", $test);
 
-$_SESSION["Spotify"] = $test;
+$_SESSION["SpotifyResultId"] = $test;
 $_SESSION["SpotifyResult"] = $artistNames;
 //unset($_POST['SearchVal']);
 

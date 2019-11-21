@@ -8,6 +8,13 @@
 	$new_post = $_REQUEST["post_body"];
 	$currentUser = $_SESSION["user_id"];
 	$spotifyEmbed = $_SESSION["Spotify"];
+<<<<<<< Updated upstream
+=======
+	$musicType = $_SESSION["musicType"]; 
+	$spotifyEmbed = $_REQUEST["musicId"];
+	echo $spotifyEmbed;
+	echo $musicType;
+>>>>>>> Stashed changes
 	// $userToFollow = "zach";
 	
 	if($new_post) {
