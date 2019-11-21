@@ -16,7 +16,8 @@
 	$tag = array();
 	$content = array();
 	$spotify = array();
-    $postid = array();
+	$postid = array();
+	$musicType = array();
 
 	if ($result->num_rows > 0) {
 
@@ -29,6 +30,7 @@
 				array_push($tag, $row["hashtag"]);
 				array_push($spotify, $row["Spotify"]);
 				array_push($postid, $row["PostID"]);
+				array_push($musicType, $row["MusicType"]);
 			}
 		}
 

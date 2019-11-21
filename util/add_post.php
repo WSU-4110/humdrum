@@ -9,11 +9,12 @@
 	$hash_tag = $_REQUEST["tag_hash"];
 	$currentUser = $_SESSION["user_id"];
 	$spotifyEmbed = $_SESSION["Spotify"];
+	$musicType = $_SESSION["musicType"]; 
 	// $userToFollow = "zach";
 
 	if($new_post) {
 		echo "<h2>$new_post </h2>";
-		$sql = "INSERT INTO user_posts (Content, hashtag, User, Spotify) VALUES ('$new_post', '$hash_tag', '$currentUser', '$spotifyEmbed')";
+		$sql = "INSERT INTO user_posts (Content, hashtag, User, Spotify, MusicType) VALUES ('$new_post', '$hash_tag', '$currentUser', '$spotifyEmbed', '$musicType')";
 		//$sql = "insert into `user_follow` values($currentUser, $userToFollow)"
 		$result = $mysqli->query($sql);
 	}

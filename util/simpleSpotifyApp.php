@@ -38,17 +38,42 @@ $SpotifyKey = $_SESSION["accessToken"];
 
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($SpotifyKey);
+
+// now get the post requests from the form in the previous page
 $searchVal = $_REQUEST["SearchVal"];
+$searchType = $_REQUEST["searchType"];
+
+if($searchType == "artist")
+{
+	$resultType = "artists";
+	$_SESSION["musicType"] = "artist";}
+
+else if($searchType == "album"){
+	$resultType = "albums";
+	$_SESSION["musicType"] = "album";}
+else {
+	$resultType = "playlists";
+	$_SESSION["musicType"] = "playlist";}
 echo $searchVal;
 // It's now possible to request data from the Spotify catalog
-$results = $api->search($searchVal, 'artist');
+$results = $api->search($searchVal, $searchType);
 $resultArray = array();
 $nameArray = array();
 
 
 $iter = 0;
 echo '<br>';
-foreach ($results->artists->items as $artist) {
+foreach ($results->$resultType->items as $music) {
+	array_push($nameArray, $music->name);
+	//$spotifyInstance->addArtist($artist->name);
+    //echo $spotifyInstance->artistName[$iter], '  <br>  ';
+	array_push($resultArray, $music->uri);
+	echo $nameArray[$iter], '  <br>';
+	$iter++;
+	
+}
+/*
+foreach ($results->$searchType->items as $artist) {
 	array_push($nameArray, $artist->name);
 	//$spotifyInstance->addArtist($artist->name);
     //echo $spotifyInstance->artistName[$iter], '  <br>  ';
@@ -59,6 +84,8 @@ foreach ($results->artists->items as $artist) {
 }
 
 
+*/
+
 // creating an instance of a class to hold the information from the spotify search
 $spotifyInstance = new spotifyResult();
 $spotifyInstance->setArtists($nameArray);
@@ -68,6 +95,8 @@ $artistNames = $spotifyInstance->getArtistNames();
 $test = $resultArray[0];
 
 $test = str_replace("spotify:artist:", "", $test);
+$test = str_replace("spotify:playlist:", "", $test);
+$test = str_replace("spotify:album:", "", $test);
 
 $_SESSION["Spotify"] = $test;
 $_SESSION["SpotifyResult"] = $artistNames;

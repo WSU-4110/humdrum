@@ -14,6 +14,12 @@
 	<form action="util/simpleSpotifyApp" method="post">
 	Search for a song/artist:<br>
 	<input type="text" name="SearchVal"><br>
+	<select name = "searchType">
+		<option value = "artist">Artists</option>
+		<option value = "album">Albums</option>
+		<option value = "playlist"> Playlists</option>
+	</select>
+
 	<select>
 	<?php
 	if(isset($_SESSION["SpotifyResult"])){
