@@ -25,7 +25,7 @@
 					echo $tag[$i];
 				?>
 				<br>
-				<a href="like.php"><i class="fas fa-thumbs-up"></i></a>
+				<button onclick="alert('You liked the post!')"><i class="fas fa-thumbs-up"></i></button>
 
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
@@ -123,7 +123,7 @@
 				Comment:<br>
 				<input type="text" name="comment">
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
-				<input type="submit" value="Submit">
+				<input type="submit" value="Submit" onclick="alert('You commented on their post!')">
 			</form>
 
             <form action="util/view_post_request.php" method="post">
