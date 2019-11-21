@@ -25,7 +25,13 @@
 
     $sql = "INSERT INTO user_pass (username, password) VALUES ('$new_username', '$new_password')";
     $result = $mysqli->query($sql);
-
+	
+	$image = imagecreatefrompng("../profile_pics/default_pic.png");
+	if(rename($image, '../profile_pics/' . $new_username . '.jpeg'))
+		$statusMsg = $new_username." uploaded successfully.";
+	else
+		$statusMsg = "Sorry, there was an error uploading your file.";
+			
     header("Location: index.php");
 
 

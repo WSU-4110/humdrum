@@ -28,6 +28,12 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 			
 			$extension = strtolower($fileType); 
 			switch ($extension) {
+				case 'jpg':
+				   $image = imagecreatefromjpeg($targetFilePath);
+				break;
+				case 'jpeg':
+				   $image = imagecreatefromjpeg($targetFilePath);
+				break;
 				case 'gif':
 				   $image = imagecreatefromgif($targetFilePath);
 				break;
@@ -36,7 +42,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 				break;
 			}
 			
-            if(copy($targetFilePath, $pic_path))
+            if(rename($targetFilePath, $pic_path))
 				$statusMsg = $pic_name." uploaded successfully.";
 			else
 				$statusMsg = "Sorry, there was an error uploading your file.";
