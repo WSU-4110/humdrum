@@ -15,44 +15,24 @@
 	</nav>
 	<br><br>
 
-	<body bgcolor= "white">
-	
+	// search for keyword
+	//$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
+	//$result = $mysqli->query($sql);
+	function convertHashtagtoLink($taghash){
+		$expression = "/#+([a-zA-Z0-9_])+/";
+		$taghash = preg_replace($expression, '<a href="hashtag.php?tag=$1">$0</a>', $taghash);
+		return $taghash;
+	}
+	$sql = "SELECT User, Content, hashtag FROM user_posts WHERE hashtag LIKE '%" . $keywordfromform . "%'";
+	$result = $mysqli->query($sql);
 
-		<div class= "wrapper float_center">
-			<div class= "box float_left">
-			
-			<?php include "util\profile_timeline.php" ?>
-			
-			</div>
-			
-			
-			<div class= "box float_right">
-				<br><br>
-					<h1>Explore!</h1>
-				<br>
-				
-				<?php
-				include "util\db_connect.php";
-				?>
-				<form action="" method="post">
-				Search for a hashtag:<br>
-				<input type="text" name="keyword"><br>
-				<input type="submit" value="Submit">
-				</form>
-				<?php
-				if (!empty($_REQUEST['keyword'])) {
-				$keywordfromform = $_REQUEST["keyword"];
-
-				// search for keyword
-				//$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
-				//$result = $mysqli->query($sql);
-				function convertHashtagtoLink($taghash){
-					$expression = "/#+[a-zA-Z0-9_]/";
-					$taghash = preg_replace($expression, '<a href="hashtag.php?tag=$0">$0</a>', $taghash);
-					return $taghash;
-				}
-				$sql = "SELECT user, content, tag FROM hashtag WHERE tag LIKE '%" . $keywordfromform . "%'";
-				$result = $mysqli->query($sql);
+	$taghash =  $keywordfromform;
+	$sql = convertHashtagtoLink($sql);
+	if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+		$taghash = convertHashtagtoLink($taghash);
+	echo "<br>" . "<b>User: </b>" . $row["User"]. "<br>" . "<b>Post: </b>" . $row["Content"]. $taghash."<br>";
 
 				$taghash = "SELECT tag FROM hashtag WHERE content LIKE '%" . $keywordfromform . "%'";
 				//$sql = convertHashtagtoLink($sql);
@@ -74,8 +54,8 @@
 			</div>
 		</div>
 	</body>
-	
-	
+
+
 	<footer>
 		Copyright © 2019 Team 7
 		<br>
