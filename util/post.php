@@ -1,7 +1,7 @@
 <div class="post">
 			
 			<a href="profile.php?user=<?=$user[$i]?>">
-			<div class="postDiv">
+			<div class="pic_padd">
 				<?php
 				include 'profile_pic.php';
 				?>
@@ -108,7 +108,7 @@
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="Submit">
 			</form>
-
+			<br>
             <form action="view_post_request.php" method="post">
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="View Post">

@@ -16,26 +16,29 @@
 	?>
 
 
-	<div class= "padd">
-
-
-
+	
+	
+	<div class= "box_drawn">
+	
+	
 		<!-- Profile Picture -->
-		<div class= "padd">
+		<div class= "float_left">
 			<?php
 			$pic = "profile_pics/". $profile_user . '.jpeg';
 			?>
 
-			<img src=<?=$pic?> alt="Profile Picture." width="96" height="96">
+			<div class= "pic_shadow"><img src=<?=$pic?> alt="Profile Picture." width="96" height="96"></div>
 		</div>
 		
 		
-		
 		<!-- Current User's Name -->
-		<div class= "box_drawn">
+		
 		<h2><?=$profile_user?></h2>
+		
 		<?php
 		if ($profile_user != $_SESSION["user_id"]) { ?>
+		
+		
 			<!-- ** follow button in progress - Not functional yet! ** -->
 			<a href="profile.php?reset=true" name ="reset"><img src="images/follow.jpg" alt="Follow Button"></a>
 			<?php
@@ -54,16 +57,13 @@
 				$mysqli->close();
 		}
 		?>
-		</div>
-		
 	</div>
-	
 	<br>
 	
 	
+	
 	<?php
-	if ($profile_user == $_SESSION["user_id"]) {
-		?>
+	if ($profile_user == $_SESSION["user_id"]) { ?>
 		<div class= "padd">
 			<form action="util/upload_img.php" method="post" enctype="multipart/form-data">
 			Select Image File to Upload:
@@ -75,8 +75,9 @@
 		
 		<br>
 		<?php
-	}
-	?>
+	} ?>
+	
+	
 	
 	<!-- Calculating post number... -->
 	<?php
@@ -137,55 +138,52 @@
 		
 	</div>
 	
-	<div class= "box_drawn">
 	
-	<h2>Followers</h2><br>
-	<?php
-	include "db_connect.php";
-	$sql = "SELECT followers FROM user_follow";
-	$result = $mysqli->query($sql);
-	if ($result->num_rows > 0) {
-    // output data of each row
-		while($row = $result->fetch_assoc()) {
-			echo "<br>" . $row["followers"]. "<br>";
-		}
-	} else {
-		echo "This user has no followers";
-	}
-	$mysqli->close();
-	
-	?>
+	<div>
+		<div class= "box_drawn">
 		
+		<h2>Followers</h2><br>
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT followers FROM user_follow";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo "<br>" . $row["followers"]. "<br>";
+			}
+		} else {
+			echo "This user has no followers";
+		}
+		$mysqli->close();
+		
+		?>
+			
+		</div>
+		
+		<div class= "box_drawn">
+		
+		<h2>Following</h2><br>
+		<?php
+		include "db_connect.php";
+		$sql = "SELECT following FROM user_follow";
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0) {
+		// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo "<br>" . $row["following"]. "<br>";
+			}
+		} else {
+			echo "This user is not following anyone";
+		}
+		$mysqli->close();
+		?>
+		</div>
 	</div>
 	
-	<div class= "box_drawn">
-	
-	<h2>Following</h2><br>
-	<?php
-	include "db_connect.php";
-	$sql = "SELECT following FROM user_follow";
-	$result = $mysqli->query($sql);
-	if ($result->num_rows > 0) {
-    // output data of each row
-		while($row = $result->fetch_assoc()) {
-			echo "<br>" . $row["following"]. "<br>";
-		}
-	} else {
-		echo "This user is not following anyone";
-	}
-	$mysqli->close();
-	
-	
-	?>
-		
-		
-	</div>
 
 
-</div>
-
-
-<br>
+	<br>
 	<div class = "box_drawn">
 	<h2> User Playlists </h2>
 	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
@@ -258,4 +256,4 @@
 		}
 	?>
 	</div>
-	
+</div>

@@ -47,5 +47,5 @@
 		echo "no results";
 	}
 	?>
-
+<br>
 </div>

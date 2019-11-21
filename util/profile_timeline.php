@@ -34,7 +34,7 @@
 
 		if ($user != NULL) {
 			// looping thru the results backwards ?>
-			<h2>Posts from <?=$profile_user?>:</h2>
+			<h2>Posts from <b><?=$profile_user?>:</b></h2>
 			<?php
 			$i=sizeof($user) - 1;
 			foreach($user as $value):
@@ -51,5 +51,5 @@
 		echo "no results";
 	}
 	?>
-
+<br>
 </div>

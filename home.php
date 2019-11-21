@@ -35,30 +35,30 @@
 
 <br><br>
 
-<body>
+<body bgcolor= "white">
 
-	<div class= "wrapper">
+	<div class= "wrapper float_center">
 		<?php
 			$profile_user = $_SESSION["user_id"];
 		?>
 		<!--Left Page - Profile -->
 
-		<div class= "box">
+		<div class= "box float_left">
 			<?php include ('util\profile_timeline.php');?>
 		</div>
 
 		<!--Center Page - Timeline -->
 
-		<div class= "box">
+		<div class= "box float_left">
 			<?php include ('util\timeline.php');?>
 		</div>
 
 		<!--Right Page - Music Search -->
 
-		<div class="box">
+		<div class="box float_right">
 			<?php include ('util\search_music.php');?>
 		</div>
-
+		
 	</div>
 
 </body>

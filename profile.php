@@ -32,9 +32,9 @@
 	
 <br><br>
 
-<body>
+<body bgcolor= "white">
 
-	<div class= "wrapper">
+	<div class= "wrapper float_center">
 		<?php
 		if (!isset($_GET['user']))
 			$profile_user = $_SESSION["user_id"];
@@ -43,14 +43,14 @@
 		?>
 		<!--Left Page - Profile -->
 		
-		<div class= "box_wide">
+		<div class= "box_wide float_left">
 		<?php include "util\profile_details.php" ?>
 		</div>
 		
 		<!--Center Page - Timeline -->
 		
 		
-		<div class= "box">
+		<div class= "box float_right">
 		<?php include "util\profile_timeline.php" ?>
 		</div>
 	
