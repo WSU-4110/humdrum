@@ -152,7 +152,7 @@
 	<div>
 		<div class= "box_drawn">
 		
-		<h3>Followers</h3><br>
+		<h3>Followers:</h3><br>
 		<?php
 		include "db_connect.php";
 		$sql = "SELECT followers FROM user_follow";
@@ -187,7 +187,7 @@
 		
 		<div class= "box_drawn">
 		
-		<h3>Following</h3><br>
+		<h3>Following:</h3><br>
 		<?php
 		include "db_connect.php";
 		$sql = "SELECT following FROM user_follow";
@@ -223,16 +223,14 @@
 
 	<br>
 	<div class = "box_drawn">
-	<h3> User Playlists </h3>
+	<h3>User Playlists:</h3>
 	<!-- GET SPOTIFY ACCESS TOKEN FOR USER, AND PRINT USER INFO -->
 	<?php 
 		include "db_connect.php";
 		$api = new SpotifyWebAPI\SpotifyWebAPI();
 
 		// Fetch the saved access token from somewhere. A database for example.
-		$currUser = $_SESSION["user_id"];
-		echo $currUser ."<br>";
-		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$currUser'";
+		$sql = "SELECT SpotifyId FROM `user_pass` WHERE username = '$profile_user'";
 		$result = $mysqli->query($sql);
 		
 		//while($row = $result->fetch_assoc()){
@@ -258,7 +256,7 @@
 			//$userId = $api->me();
 			
 			// print user login
-			echo "Spotify Username: ". $spotifyUsername . "<br> <hr>";
+			echo "Spotify Username: <b>". $spotifyUsername . "</b><br> <hr>";
 			// get playlists for that user
 			//$playlists = $api->getUserPlaylists($userId->id);
 			$playlists = $api->getUserPlaylists($spotifyUsername);
