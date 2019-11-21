@@ -24,7 +24,7 @@
 		";
 		}
   ?>
-<?php include "util\profile_timeline.php" ?>
+<?php include "util/profile_timeline.php" ?>
 </div>
 <br><br>
 <h1>Trending On Humdrum!</h1>
@@ -34,20 +34,20 @@
 <div class="page">
 <div class="post">
 	<?php
-	include "util\db_connect.php";
+	include "util/db_connect.php";
 	?>
 
 	<?php
 
 
 	// search for keyword
-	$sql = "SELECT tag, COUNT('tag') AS value_occurence FROM hashtag GROUP BY tag ORDER BY value_occurence DESC LIMIT 2";
+	$sql = "SELECT hashtag, COUNT('tag') AS value_occurence FROM user_posts GROUP BY hashtag ORDER BY value_occurence DESC LIMIT 100";
 	$result = $mysqli->query($sql);
 
 	if ($result->num_rows > 0) {
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
-	echo $row["tag"]."<br>";
+	echo '<font size="5">'.$row["hashtag"].'</font>'."<br>";
 
 	}
 	}
