@@ -1,3 +1,4 @@
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -9,15 +10,17 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 </style>
 
 
-<!-- Navbar -->
+<!-- Footer -->
 <div class="w3-bottom">
+<footer>
 	<div class="w3-bar w3-theme-d4 w3-left-align w3-large w3-padding-large">
 	
 		<div class="float_left">
 		Copyright © 2019 Team 7
 		</div>
-		<div class="float_right footer"><a href="mailto:scott@howard.com" target="_top"> Scott@Howard.com </a></div>
+		<div class="float_right"><a href="mailto:scott@howard.com" target="_top"> Scott@Howard.com </a></div>
 		<br>
 	
 	</div>
+</footer>
 </div>
