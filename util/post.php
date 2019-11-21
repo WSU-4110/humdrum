@@ -3,8 +3,9 @@
 			<a href="profile.php?user=<?=$user[$i]?>">
 			<div class="pic_padd">
 				<?php
-				include 'profile_pic.php';
+				$pic = "../profile_pics/". $user[$i] . ".jpeg";
 				?>
+				<img src=<?=$pic?> alt=" " width="48" height="48">
 				<b><?=$user[$i]?> </b>
 			</div>
 			</a>
