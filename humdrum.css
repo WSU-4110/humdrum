@@ -7,11 +7,7 @@ header {
 	text-align: center;
 }
 footer {
-	width: 100%;
-	background-color: lightblue;
-	position: fixed;
-	bottom: 0px;
-	padding: 10px;
+	padding: 20px;
 	box-shadow: 0px 0px 40px white;
 }
 .float_left {
