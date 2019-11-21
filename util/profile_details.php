@@ -107,8 +107,17 @@
 			if($row["username"] == $profile_user) {
 				$join_date = $row["join_date"];
 				$bio = $row["bio"];
+				$music_links = $row["music_links"];
 			}
 		}
+		
+		if (!isset($join_date))
+			$join_date = "NULL";
+		if (!isset($bio))
+			$bio = "This user hasn't shared their biography yet...";
+		if (!isset($music_links))
+			$music_links = "This user hasn't shared their music yet...";
+		
 		
 		?>
 		
@@ -134,7 +143,7 @@
 	<div class= "box_drawn">
 	
 	<h2>Music Reccomendations:</h2><br>
-		MUSIC LINKS
+		<?=$music_links?>
 		
 	</div>
 	
