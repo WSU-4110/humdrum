@@ -42,8 +42,6 @@
 
 	</form>
 
-<<<<<<< Updated upstream
-=======
 	<script>
 		var x;
 		function updateSession(){
@@ -94,7 +92,6 @@
 		
 	</script>
 
->>>>>>> Stashed changes
 	<br>
 
 	<div>
