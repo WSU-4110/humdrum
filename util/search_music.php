@@ -52,7 +52,7 @@
 		function updateSession(){
 			
 			x = document.getElementById("searchList").value;
-			alert(x);
+			//alert(x);
 
 			document.getElementById("embedId").value = x;
 			//'<%Session["Spotify"] = "' + x + '"; %>';
@@ -109,7 +109,7 @@
 	Submit a post:<br>
 	<textarea id="msg" name="post_body"></textarea>
 	<br>
-	Add a hashtag:<br>
+	Add your own genre:<br>
 	<textarea id="msg" name="tag_hash"></textarea>
 	<input type = "hidden" name="musicId" id = "embedId" value = "0">
 	<br>

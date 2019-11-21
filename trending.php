@@ -37,7 +37,7 @@
 					include "util\db_connect.php";
 					?>
 					<form action="" method="post">
-						Search for a hashtag:<br>
+						Search by genre:<br>
 						<input type="text" name="keyword"><br>
 						<input type="submit" value="Submit">
 					</form>
@@ -79,7 +79,7 @@
 	</body>
 	
 	
-<?php include "footer.php" ?>
+<?php //include "footer.php" ?>
 
 
 </html>

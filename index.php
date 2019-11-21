@@ -68,8 +68,10 @@ if ($mysqli->connect_errno)
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
+//var_dump($mysqli);
 $sql = "SELECT username, password FROM user_pass";
 $result = $mysqli->query($sql);
+var_dump($result);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -79,7 +81,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "wrong password or username";
 }
-$mysqli->close();
+//$mysqli->close();
 
     
 ?>
