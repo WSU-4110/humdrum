@@ -24,6 +24,8 @@
 				if (isset($tag[$i]))
 					echo $tag[$i];
 				?>
+				<br>
+				<a href="like.php"><i class="fas fa-thumbs-up"></i></a>
 
 			<script   src=\"https://code.jquery.com/jquery-3.4.1.min.js\"   integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\"   crossorigin=\"anonymous\"></script>
 			<script>
@@ -115,7 +117,7 @@
 			//$row = $result->fetch_assoc();
 
 			while($row = $result->fetch_assoc()) {
-				
+
 			echo $row["Username"] . " commented: ". $row["Content"] . "<br>";}
 			?>
 				Comment:<br>
@@ -128,6 +130,6 @@
                 <input type='hidden' name='var' value='<?php echo "$postid[$i]";?>'/>
 				<input type="submit" value="View Post">
 			</form>
-			
+
 
 		</div>
