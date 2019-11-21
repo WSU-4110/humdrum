@@ -131,12 +131,23 @@
 	<br>
 	
 	<!-- Bio -->
-	<div class= "box_drawn">
-	
-	<h3>Bio:</h3><br>
-		<?=$bio?>
-		
+	<?php
+	if ($profile_user != $_SESSION["user_id"]) { ?>
+		<div class= "box_drawn">
+		<h3>Bio:</h3><br>
+			<?=$bio?>
+		</div>
+	<?php
+	}
+	else { ?>
+	<div class= "padd">
+		<form action="update_bio.php" method="post">
+		Bio:<br><textarea name="bio" maxlength="256" width="512" rows="6"><?=$bio?></textarea><br><br>
+		<input type="submit">
+		</form>
 	</div>
+	<?php } ?>
+	
 	
 	<br>
 	
