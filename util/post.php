@@ -3,7 +3,7 @@
 			<a href="profile.php?user=<?=$user[$i]?>">
 			<div class="pic_padd">
 				<?php
-				$pic = "../profile_pics/". $user[$i] . ".jpeg";
+				$pic = "profile_pics/". $user[$i] . ".jpeg";
 				?>
 				<img src=<?=$pic?> alt=" " width="48" height="48">
 				<b><?=$user[$i]?> </b>
@@ -14,7 +14,7 @@
 
 			<div class="postDiv">
 				
-				<iframe src="https://open.spotify.com/embed/<?php echo $musicType[$i];?>/<?php echo $spotify[$i];?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+				<iframe src="https://open.spotify.com/embed/<?php echo $musicType[$i];?>/<?php echo $spotify[$i];?>" width="300" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 			</div>
 
 

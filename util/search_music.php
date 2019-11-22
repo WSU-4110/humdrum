@@ -1,5 +1,6 @@
 <div class="page">
 <div class="post">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<?php
 	include "db_connect.php";
 	//include "util\simpleSpotifyApp.php";
@@ -11,29 +12,33 @@
 	?>
 	<h2> Create a Post </h2>
 
-	<form action="util/simpleSpotifyApp" method="post">
+	<form action="util/simpleSpotifyApp" method="post" id = "spotifySearchForm">
 	Search for a song/artist:<br>
-	<input type="text" name="SearchVal"><br>
+	<input type="text" name="SearchVal" ><br>
 	<select name = "searchType">
 		<option value = "artist">Artists</option>
 		<option value = "album">Albums</option>
 		<option value = "playlist"> Playlists</option>
 	</select>
 
-	<select>
+	<select name = "searchResultList" id = "searchList" onchange ="updateSession()">
 	<?php
+	$musicId = $_SESSION['SpotifyResultId'];
+	$i = 0;
 	if(isset($_SESSION["SpotifyResult"])){
 	foreach($_SESSION['SpotifyResult'] as $key=>$value)
     {
 		?>
-		<option>
+		<option value = "<?=$musicId[$i]?>">
 		<?php
 			// and print out the values
 			echo $value;
+			
 			?>
 		</option>
 
 		<?php
+		$i++;
     }}
 
 	?>
@@ -94,6 +99,9 @@
 
 	<br>
 
+<?php
+
+?>
 	<div>
 	<!-- type your post here -->
 
@@ -103,6 +111,7 @@
 	<br>
 	Add your own genre:<br>
 	<textarea id="msg" name="tag_hash"></textarea>
+	<input type = "hidden" name="musicId" id = "embedId" value = "0">
 	<br>
 	<input type="submit" value="Submit">
 	</form>

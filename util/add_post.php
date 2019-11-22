@@ -10,6 +10,9 @@
 	$currentUser = $_SESSION["user_id"];
 	$spotifyEmbed = $_SESSION["Spotify"];
 	$musicType = $_SESSION["musicType"]; 
+	$spotifyEmbed = $_REQUEST["musicId"];
+	echo $spotifyEmbed;
+	echo $musicType;
 	// $userToFollow = "zach";
 
 	if($new_post) {
