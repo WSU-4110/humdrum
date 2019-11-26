@@ -23,6 +23,6 @@ $_SESSION["postID"] = $postid;
     $result = $mysqli->query($sql);
 
     
-    header("Location: view_post.php");
+    header("Location:../home.php");
 
 ?>

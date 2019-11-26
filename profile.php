@@ -16,6 +16,8 @@
      header("Location: login.php");
      die();
 	 }
+
+	
  ?>
 
 <head>
@@ -32,9 +34,9 @@
 	
 <br><br>
 
-<body>
+<body bgcolor= "white">
 
-	<div class= "wrapper">
+	<div class= "wrapper float_center">
 		<?php
 		if (!isset($_GET['user']))
 			$profile_user = $_SESSION["user_id"];
@@ -43,15 +45,32 @@
 		?>
 		<!--Left Page - Profile -->
 		
-		<div class= "box_wide">
+		<div class= "box_wide float_left">
 		<?php include "util\profile_details.php" ?>
 		</div>
 		
 		<!--Center Page - Timeline -->
 		
 		
-		<div class= "box">
-		<?php include "util\profile_timeline.php" ?>
+		<div class= "box float_right">
+		<?php 
+		include "util/db_connect.php";
+		$loggedInUser = $_SESSION["user_id"];
+		
+		$sql = "SELECT * FROM user_follow WHERE followers = '$loggedInUser' AND following = '$profile_user' ";
+		//$sql = "insert into `user_follow` values($currentUser, $userToFollow)"
+		$result = $mysqli->query($sql);
+
+		if ($result->num_rows > 0) {
+			include "util\profile_timeline.php";}
+		else{
+			echo "<h2> You don't follow this person </h2>";
+		}
+			
+			?>
+
+		
+		
 		</div>
 	
 	</div>
