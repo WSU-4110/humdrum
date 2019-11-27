@@ -1,5 +1,7 @@
 {
     "require": {
-        "jwilsson/spotify-web-api-php": "^2.11"
+        "jwilsson/spotify-web-api-php": "^2.11",
+        "phpunit/phpunit": "8.3.5",
+
     }
 }
