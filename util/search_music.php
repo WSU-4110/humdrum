@@ -12,7 +12,7 @@
 	?>
 	<h2> Create a Post </h2>
 
-	<form action="util/simpleSpotifyApp" method="post" id = "spotifySearchForm">
+	<form action="util/simpleSpotifyApp.php" method="post" id = "spotifySearchForm">
 	Search for a song/artist:<br>
 	<input type="text" name="SearchVal" ><br>
 	<select name = "searchType">
