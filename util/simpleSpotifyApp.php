@@ -36,7 +36,7 @@ while($row = $result->fetch_assoc()){
 //echo $SpotifyKey;
 */
 $SpotifyKey = $_SESSION["accessToken"];
-
+echo $SpotifyKey;
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 $api->setAccessToken($SpotifyKey);
 
