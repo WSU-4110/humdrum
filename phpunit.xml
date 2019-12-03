@@ -9,12 +9,11 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false"
         >
 
     <testsuites>
         <testsuite name="Humdrum test suite">
-            <directory>./tests/</directory>
+            <directory>./humdrum/</directory>
         </testsuite>
     </testsuites>
 
