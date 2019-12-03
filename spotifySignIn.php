@@ -11,7 +11,7 @@ if(!isset($_SESSION))
 $session = new SpotifyWebAPI\Session(
     'afb26d61a1f34dfd958e31def5798792',
     '74a1595ea6974b68bc9a10e2897750d0',
-    'http://localhost:8282/humdrum/home.php'
+    'https://humdrum-php-humdrum-azure-branch.azurewebsites.net/home.php'
 );
 
 // this is the variable that uses the API to call functions
