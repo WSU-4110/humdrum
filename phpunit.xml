@@ -13,7 +13,7 @@
 
     <testsuites>
         <testsuite name="Humdrum test suite">
-            <directory>./humdrum/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
