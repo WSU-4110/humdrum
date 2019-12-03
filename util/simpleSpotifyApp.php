@@ -6,7 +6,8 @@ if(!isset($_SESSION))
     }
 include "db_connect.php";
 //require "C:/wamp64/www/humdrum/home.php";
-require 'C:/wamp64/www/humdrum/vendor/autoload.php';
+//require 'C:/wamp64/www/humdrum/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 class spotifyResult{
 	public $artistNames = array();
