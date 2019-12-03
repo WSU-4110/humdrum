@@ -3,8 +3,8 @@
 
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
-
-include 'util/simpleSpotifyApp.php';
+$root = $_SERVER['DOCUMENT_ROOT'];
+include $root. '/util/simpleSpotifyApp.php';
 
 
 class firstTest extends TestCase
