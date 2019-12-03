@@ -1,4 +1,4 @@
 language: php
 
-script: phpunit
+script: phpunit --bootstrap
 - echo "hello world"
