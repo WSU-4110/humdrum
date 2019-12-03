@@ -4,7 +4,7 @@
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
 
-include 'util\simpleSpotifyApp.php';
+include '../util/simpleSpotifyApp.php';
 
 
 class firstTest extends TestCase
