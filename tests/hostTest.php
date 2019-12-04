@@ -1,7 +1,7 @@
 <?php
 
  use PHPUnit\Framework\TestCase;
-class hostTest extends \PHPUnit_Framework_TestCase
+class hostTest extends TestCase
 {
 	public function setHost() {
 		$dbhost = 'remotemysql.com:3306';

@@ -1,7 +1,7 @@
 <?php
 
  use PHPUnit\Framework\TestCase;
-class sqlErrTest extends \PHPUnit_Framework_TestCase
+class sqlErrTest extends TestCase
 {
 	public function sendError() {
 		$mysqli = 'error';

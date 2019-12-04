@@ -1,7 +1,7 @@
 <?php
 
  use PHPUnit\Framework\TestCase;
-class spotifyErrTest extends \PHPUnit_Framework_TestCase
+class spotifyErrTest extends TestCase
 {
 	public function spotifyError() {
 		$musicId = 'SpotifyResultI';

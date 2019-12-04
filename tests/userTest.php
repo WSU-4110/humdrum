@@ -1,7 +1,7 @@
 <?php
 
  use PHPUnit\Framework\TestCase;
-class userTest extends \PHPUnit_Framework_TestCase
+class userTest extends TestCase
 {
 	public function setUser() {
 		$dbuser = 'KoZHfNDBQT';

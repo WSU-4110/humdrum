@@ -1,7 +1,7 @@
 <?php
 
  use PHPUnit\Framework\TestCase;
-class dbTest extends \PHPUnit_Framework_TestCase
+class dbTest extends TestCase
 {
 	public function setDB() {
 		$database_in_use = 'KoZHfNDBQT';
