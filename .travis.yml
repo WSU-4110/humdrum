@@ -3,8 +3,7 @@ language: php
 branches:
   only:
     - master
-    - NewTestingBranch
 before_install:
   - travis_retry composer self-update
   - composer install
-script: phpunit --verbose firstTest.php
+script: phpunit --configuration phpunit.xml --coverage-text
