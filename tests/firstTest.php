@@ -1,6 +1,6 @@
 <?php
 
-use humdrum\SpotitfyApp;
+//use humdrum\util;
 
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
@@ -13,7 +13,7 @@ class firstTest extends TestCase
 {
     function testIfSpotifyArtistsAreSetCorrectly()
     {
-        $artists = new SpotitfyApp\spotifyResult();
+        $artists = new \humdrum\util\spotifyResult();
         $artistArray = array();
         array_push($artistArray, "billy");
         array_push($artistArray, "eyelash");
