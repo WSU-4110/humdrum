@@ -164,5 +164,3 @@ if(isset($_POST['SearchVal'])){
 
 
 ?>
-
-
