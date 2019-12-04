@@ -1,4 +1,5 @@
 <?php
+namespace SpotifyApp;
 //function searchSpotify(){
 if(!isset($_SESSION))
 {

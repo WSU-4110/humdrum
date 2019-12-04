@@ -1,6 +1,7 @@
 <?php
 
-
+use SpotifyClass\spotifyResult;
+use SpotifyClass;
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
 $root = $_SERVER['DOCUMENT_ROOT'];
