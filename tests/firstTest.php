@@ -13,7 +13,7 @@ class firstTest extends TestCase
 {
     function testIfSpotifyArtistsAreSetCorrectly()
     {
-        $artists = new spotifyResult;
+        $artists = new SpotitfyApp\spotifyResult();
         $artistArray = array();
         array_push($artistArray, "billy");
         array_push($artistArray, "eyelash");
