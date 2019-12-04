@@ -1,5 +1,5 @@
 <?php
-namespace SpotifyApp;
+namespace humdrum\SpotifyApp;
 //function searchSpotify(){
 if(!isset($_SESSION))
 {

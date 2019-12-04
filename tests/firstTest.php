@@ -1,12 +1,12 @@
 <?php
 
-use SpotifyClass\spotifyResult;
-use SpotifyClass;
+use humdrum\SpotitfyApp;
+
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
 $root = $_SERVER['DOCUMENT_ROOT'];
 //include $root. '/util/simpleSpotifyApp.php';
-include '..\util\simpleSpotifyApp.php';
+//include '..\util\simpleSpotifyApp.php';
 
 
 class firstTest extends TestCase
