@@ -1,6 +1,6 @@
 <?php
 
- 
+ use PHPUnit\Framework\TestCase;
 class dbTest extends \PHPUnit_Framework_TestCase
 {
 	public function setDB() {

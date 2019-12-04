@@ -1,6 +1,6 @@
 <?php
 
- 
+ use PHPUnit\Framework\TestCase;
 class sqlErrTest extends \PHPUnit_Framework_TestCase
 {
 	public function sendError() {

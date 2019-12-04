@@ -1,6 +1,6 @@
 <?php
 
- 
+ use PHPUnit\Framework\TestCase;
 class spotifyErrTest extends \PHPUnit_Framework_TestCase
 {
 	public function spotifyError() {

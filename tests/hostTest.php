@@ -1,6 +1,6 @@
 <?php
 
- 
+ use PHPUnit\Framework\TestCase;
 class hostTest extends \PHPUnit_Framework_TestCase
 {
 	public function setHost() {
