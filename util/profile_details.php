@@ -62,7 +62,7 @@
 	<br>
 	
 	
-	
+	<!-- FUNCTION 1 - Upload Profile Picture -->
 	<?php
 	if ($profile_user == $_SESSION["user_id"]) { ?>
 		<div class= "padd">
@@ -80,7 +80,7 @@
 	
 	
 	
-	<!-- Calculating post number... -->
+	<!-- FUNCTION 2 - Calculating post number -->
 	<?php
 	$post_num = 0;
 	if ($result->num_rows > 0) {
@@ -97,7 +97,7 @@
 	?>
 	
 	
-	<!-- Information -->
+	<!-- FUNCTION 3 - Setting Information -->
 	<div class= "box_drawn">
 		<?php
 		include "db_connect.php"; 
@@ -130,7 +130,7 @@
 	
 	<br>
 	
-	<!-- Bio -->
+	<!-- FUNCTION 4 - Display Bio -->
 	<?php
 	if ($profile_user != $_SESSION["user_id"]) { ?>
 		<div class= "box_drawn">
@@ -162,7 +162,7 @@
 	
 	<div>
 		<div class= "box_drawn">
-		
+		<!-- FUNCTION 5 - Display Followers -->
 		<h3>Followers:</h3><br>
 		<?php
 		include "db_connect.php";
@@ -197,7 +197,7 @@
 		</div>
 		
 		<div class= "box_drawn">
-		
+		<!-- FUNCTION 6 - Display Following -->
 		<h3>Following:</h3><br>
 		<?php
 		include "db_connect.php";
