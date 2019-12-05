@@ -24,26 +24,32 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
         // Upload file to server
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
             // Insert image file name into database
-			
-			
-			$extension = strtolower($fileType); 
+
+
+			$extension = strtolower($fileType);
 			switch ($extension) {
-				case 'jpg':
+                case 'jpeg':
+                case 'jpg':
 				   $image = imagecreatefromjpeg($targetFilePath);
 				break;
-				case 'jpeg':
-				   $image = imagecreatefromjpeg($targetFilePath);
-				break;
-				case 'gif':
+                case 'gif':
 				   $image = imagecreatefromgif($targetFilePath);
 				break;
 				case 'png':
-				   $image = imagecreatefrompng($targetFilePath);
-				break;
+                $image = imagecreatefrompng($targetFilePath);
+                break;
+                case 'bmp':
+                $image = imagecreatefrombmp($targetFilePath);
+                break;
 			}
-			
-            if(rename($targetFilePath, $pic_path))
-				$statusMsg = $pic_name." uploaded successfully.";
+
+            $pic_image = imagecreatetruecolor(128, 128);
+            imagecopyresampled($pic_image, $image, 0, 0, 0, 0, 128, 128, imagesx($image), imagesy($image));
+            unlink($targetFilePath);
+
+            if(imagejpeg($pic_image, $pic_path)) {
+                $statusMsg = $pic_name . " uploaded successfully.";
+            }
 			else
 				$statusMsg = "Sorry, there was an error uploading your file.";
         }
