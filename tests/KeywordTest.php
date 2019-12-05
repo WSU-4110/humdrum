@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-class keyword extends PHPUnit_Framework_TestCase
+//require_once __DIR__ . '/vendor/autoload.php';
+use PHPUnit\Framework\TestCase;
+class keyword extends TestCase
 {
     public function keywordFind(){
         $keywordfromform = 'keyword';
