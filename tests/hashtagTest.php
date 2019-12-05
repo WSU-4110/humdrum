@@ -1,7 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-use PHPUnit\Framework\TestCase;
-class hashtagErrTest extends TestCase
+class hashtagErrTest extends PHPUnit_Framework_TestCase
 {
     public function hashtagError(){
         $tag_hash = 'hastagID';

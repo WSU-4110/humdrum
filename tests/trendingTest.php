@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use PHPUnit\Framework\TestCase;
-class hashtagConvertest extends TestCase
+class hashtagConvertest extends PHPUnit_Framework_TestCase
 {
     public function convertTag(){
         $expression = "/#+([a-zA-Z0-9_])+/";
