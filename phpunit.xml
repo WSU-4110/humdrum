@@ -15,9 +15,6 @@
         <testsuite name="Humdrum test suite">
             <directory>./tests/</directory>
         </testsuite>
-	<testsuite name="humdrum test suite 2">
-	    <directory> ./humdrum/</directory>
-	</testsuite>
     </testsuites>
 
 </phpunit>
