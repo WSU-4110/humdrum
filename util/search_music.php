@@ -33,7 +33,7 @@
 		<?php
 			// and print out the values
 			echo $value;
-			
+
 			?>
 		</option>
 
@@ -50,13 +50,13 @@
 	<script>
 		var x;
 		function updateSession(){
-			
+
 			x = document.getElementById("searchList").value;
 			//alert(x);
 
 			document.getElementById("embedId").value = x;
 			//'<%Session["Spotify"] = "' + x + '"; %>';
-	
+
 		}
 
 	</script>
@@ -77,7 +77,7 @@
 						alert('Submission was successful.');
 						var sessionArray = '<%= Session["SpotifyResult"] %>';
 						var container = document.getElementById("searchResultList");
-    					
+
 						var $el = $("#searchResultList");
 						$el.empty(); // remove old options
 						$el.append($("<option></option>")
@@ -85,7 +85,7 @@
 						$.each(sessionArray, function(value, key) {
 							$el.append($("<option></option>")
 									.attr("value", value).text(key));
-						});	 
+						});
 							console.log(data);
 						},
 					error: function (data) {
@@ -94,7 +94,7 @@
 						},
 				});
 			});
-		
+
 	</script>
 
 	<br>
@@ -103,6 +103,29 @@
 
 ?>
 	<div>
+		<style>
+
+		label{
+			width: 30%;
+		}
+		ul li{
+			list-style-type: none;
+			display: inline-block;
+			color: black;
+			text-shadow: 2px 2px 7px grey;
+			font-size: 15px !important;
+		}
+		ul li:hover{
+			color: green;
+		}
+		ul li.active,ul li.secondary-active{
+			color: green;
+		}
+		input[type="radio"]{
+			display: none
+		}]
+
+		</style>
 	<!-- type your post here -->
 
 	<form action="util/add_post.php" method = "post" >
@@ -113,11 +136,23 @@
 	<textarea id="msg" name="tag_hash"></textarea>
 	<input type = "hidden" name="musicId" id = "embedId" value = "0">
 	<br>
+	User rating:
+	<ul>
+      <li><label for="rating_1"><i class="far fa-star" aria-hidden="true"></i></label><input type = "radio" name = "rating" id = "rating_1"value = "1"/></li>
+      <li><label for="rating_2"><i class="far fa-star" aria-hidden="true"></i></label><input type = "radio" name = "rating" id = "rating_2" value = "2"/></li>
+      <li><label for="rating_3"><i class="far fa-star" aria-hidden="true"></i></label><input type = "radio" name = "rating" id = "rating_3" value = "3"/></li>
+			<li><label for="rating_4"><i class="far fa-star" aria-hidden="true"></i></label><input type = "radio" name = "rating" id = "rating_3" value = "4"/></li>
+			<li><label for="rating_5"><i class="far fa-star" aria-hidden="true"></i></label><input type = "radio" name = "rating" id = "rating_3" value = "5"/></li>
+  </ul>
 	<input type="submit" value="Submit">
 	</form>
-
-
-
 	</div>
 </div>
 </div>
+<script>
+$('li').on('click', function(){
+	$('li').removeClass('active');
+	$(this).addClass('active');
+	$(this).prevAll().addClass('secondary-active');
+})
+</script>
