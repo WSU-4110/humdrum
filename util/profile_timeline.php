@@ -14,6 +14,7 @@
 
 	$user = array();
 	$tag = array();
+	$rating = array();
 	$content = array();
 	$spotify = array();
     $postid = array();
@@ -29,6 +30,7 @@
 				array_push($user, $row["User"]);
 				array_push($content, $row["Content"]);
 				array_push($tag, $row["hashtag"]);
+				array_push($rating, $row["User_rating"]);
 				array_push($spotify, $row["Spotify"]);
 				array_push($postid, $row["PostID"]);
 				array_push($musicType, $row["MusicType"]);
