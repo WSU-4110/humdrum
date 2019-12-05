@@ -5,10 +5,10 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-//include "db_connect.php";
+include "db_connect.php";
 //require "C:/wamp64/www/humdrum/home.php";
 $root = $_SERVER['DOCUMENT_ROOT'];
-//require $root. '\vendor\autoload.php';
+require $root. '\vendor\autoload.php';
 
 class spotifyResult{
     public $artistNames = array();
