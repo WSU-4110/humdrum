@@ -1,6 +1,6 @@
 <?php
 
-//use humdrum\util;
+use humdrum\util;
 
 use PHPUnit\Framework\TestCase;
 //use util\SpotifyClass\spotifyResult;
@@ -24,7 +24,7 @@ class firstTest extends TestCase
 
     function testIfSpotifyAlbumsAreSetCorrectly()
     {
-        $albums = new spotifyResult;
+        $albums = new \humdrum\util\spotifyResult();
         $albumArray = array();
         array_push($albumArray, "kid a");
         array_push($albumArray, "test album");
@@ -34,7 +34,7 @@ class firstTest extends TestCase
 
     function testIfSpotifyPlaylistAreSetCorrectly()
     {
-        $playlists = new spotifyResult;
+        $playlists = new \humdrum\util\spotifyResult();
         $playlistArray = array();
         array_push($playlistArray, "billy");
         array_push($playlistArray, "eyelash");
@@ -44,7 +44,7 @@ class firstTest extends TestCase
 
     function testIfSpotifyUrisAreSetCorrectly()
     {
-        $uri = new spotifyResult;
+        $uri = new \humdrum\util\spotifyResult();
         $uriArray = array();
         array_push($uriArray, "123456789");
         array_push($uriArray, "12345");
@@ -54,13 +54,13 @@ class firstTest extends TestCase
 
     function testIfMusicTypeSessionVariableIsCorrect(){
 
-        $musicType = setMusicType("artist");
+        $musicType = \humdrum\util\setMusicType("artist");
         $this->assertEquals("artists", $musicType);
 
-        $musicType = setMusicType("playlist");
+        $musicType = \humdrum\util\setMusicType("playlist");
         $this->assertEquals("playlists", $musicType);
 
-        $musicType = setMusicType("album");
+        $musicType = \humdrum\util\setMusicType("album");
         $this->assertEquals("albums", $musicType);
 
 
@@ -68,13 +68,13 @@ class firstTest extends TestCase
 
     function testChopIDFunction(){
 
-        $result = chopID("spotify:artist:");
+        $result = \humdrum\util\chopID("spotify:artist:");
         $this->assertEquals("", $result);
 
-        $result = chopID("spotify:playlist:");
+        $result = \humdrum\util\chopID("spotify:playlist:");
         $this->assertEquals("", $result);
 
-        $result = chopID("spotify:album:");
+        $result = \humdrum\util\chopID("spotify:album:");
         $this->assertEquals("", $result);
 
 
