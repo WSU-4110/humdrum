@@ -6,4 +6,4 @@ branches:
 before_install:
   - travis_retry composer self-update
   - composer install
-script: phpunit --configuration phpunit.xml --coverage-text
+script: phpunit --phpunit --bootstrap vendor/autoload.php util
