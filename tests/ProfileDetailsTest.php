@@ -1,9 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
 $_SESSION["user_id"] = "tjsase";
-include '../profile.php';
+include 'profile.php';
 // include 'profile_details.php';
-include "../util/db_connect.php";
+include "db_connect.php";
 $sql = "SELECT * FROM user_pass";
 $result = $mysqli->query($sql);
 class ProfileDetailsTest extends TestCase
