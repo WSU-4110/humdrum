@@ -2,7 +2,7 @@ language: php
 
 branches:
   only:
-    - testing-branch
+    - master
 before_install:
   - travis_retry composer self-update
   - composer install
