@@ -4,7 +4,7 @@ class ratingTest extends TestCase
 {
     public function rating(){
         $userrating = $_REQUEST["rating"];
-        return $rating;
+        return $userrating;
 
     }
     public function testRating(){
