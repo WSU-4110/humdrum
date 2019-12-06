@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 class ratingTest extends TestCase
 {
     public function rating(){
-        $userrating = "rating";
+        $userrating = "ratin";
         if($userrating != "rating"){
           return 'error';
         }
