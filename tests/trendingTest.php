@@ -4,7 +4,7 @@ class trendingTest extends TestCase
 {
     public function convertTag(){
         $taghash = '<a href="hashtag.php?tag=$1">$0</a>';
-        if($taghas != '<a href="hashtag.php?tag=$1">$0</a>'){
+        if($taghash != '<a href="hashtag.php?tag=$1">$0</a>'){
           return 'error';
         }
 
